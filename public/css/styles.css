@@ -1,0 +1,274 @@
+body{
+  background:#f2f2f2;
+  font-size: 16px;
+   font-family: 'Oswald', sans-serif;
+
+}
+
+.barra-lateral{
+  background:black;
+  color:#fff;
+  min-width: 300px;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.barra-lateral a{
+  color:#fff;
+}
+
+.barra-lateral .logo{
+  background:#0275db;
+  margin-bottom: 2px;
+}
+
+.barra-lateral .logo h2{
+  font-size:30px;
+  font-family: 'Oswald', sans-serif;
+  padding: 20px 0;
+  text-align: center;
+  font-weight: 300;
+  margin: 0;
+
+}
+
+.barra-lateral .menu a{
+  display: block;
+  padding: 20px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255,255,255,.1)
+}
+
+.barra-lateral .menu a:hover{
+  background: #cf1a21;
+  text-decoration: none;
+}
+
+.barra-lateral .menu a i{
+  margin-right: 15px;
+  font-weight: normal;
+}
+
+.main{
+  padding-top: 40px;
+
+}
+
+.main .columna{
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.main .titulo{
+  color:#262a34;
+  font-size: 25px;
+  font-weight: 500;
+  font-family: 'Oswald', sans-serif;
+  margin-bottom: 20px;
+
+}
+
+.main .widget{
+  margin-bottom: 40px;
+
+}
+
+.main .widget form input[type="text"]{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-family: 'Oswald', sans-serif;
+  border: none;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2),
+  font-weight:400;
+
+}
+
+.custom-select{
+  margin-left: 10px;
+}
+
+.main .widget form input[type="datetime-local"]{
+  margin-bottom: 20px;
+}
+
+.main .widget form textarea{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-family: 'Oswald', sans-serif;
+  border: none;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2),
+  height:200px;
+  min-height: 150px;
+  max-width: 100%;
+  min-width: 100%;
+
+}
+
+.main .widget form button{
+  margin-top: 20px;
+  background:#0275d8;
+  cursor: pointer;
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  display: inline-block;
+  padding: 5px;
+  width: 100px;
+  border-radius: 3px;
+  transition: all .3s ease;
+
+}
+
+.main .widget form button:hover{
+  background:#025aa5;
+}
+
+.main .informacion .contenedor{
+
+  box-shadow: 0px 1px 1px 0px rgba(0,0,0,.2)
+}
+
+
+.main .informacion .caja{
+  background:#fff;
+  border:1px solid #e3e3e3;
+  padding: 15px 20px;
+  flex: 1;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+
+}
+
+.main .informacion .caja h3{
+  margin-bottom: 10px;
+  color: #025aa5;;
+}
+
+img{
+  height: 100%;
+  width: 100%;
+}
+
+.logo_img{
+  max-width: 300px;
+  max-height: 120px;
+}
+
+
+.foto_perfil{
+  width: 85px;
+  height: 85px;
+  overflow: hidden;
+  margin-right: 20px;
+  border-radius: 100px;
+}
+
+
+.main .tareas_prioritarias .contenedor{
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
+}
+
+.main .tareas_prioritarias .tarea_prioritaria{
+  background:#fff;
+  padding: 20px;
+  border-bottom: 1px solid #fdfdfd;
+}
+
+.main .tareas_prioritarias .tarea_prioritaria .texto{
+flex: 1;
+}
+
+.main .tareas_prioritarias .tarea_prioritaria .texto .texto_comentario{
+  font-size: 14px;
+  font-family: 'Oswald', sans-serif;
+  text-align: justify;
+}
+
+.main .tareas_prioritarias .tarea_prioritaria .botones button{
+  background:none;
+  cursor: pointer;
+  color: #fff;
+   font-family: 'Oswald', sans-serif;
+   font-size: 14px;
+   font-weight: 500;
+   border: none;
+   display: inline-block;
+   padding: 5px 10px;
+   border-radius: 3px;
+   transition: all .3s ease;
+   margin-right: 10px;
+   margin-bottom: 10px;
+
+}
+
+.main .tareas_prioritarias .tarea_prioritaria .botones .aprobar{
+ background:#149B26;
+}
+
+.main .tareas_prioritarias .tarea_prioritaria .botones .aprobar:hover{
+  background:#0A5114;
+}
+
+.main .tareas_prioritarias .tarea_prioritaria .botones .eliminar{
+
+  background:#cf1a21;
+}
+
+.main .tareas_prioritarias .tarea_prioritaria .botones .eliminar:hover{
+
+  background:#54130A;
+}
+
+/*----Mediaquerys----*/
+
+@media screen and (max-width: 1300px){
+  .barra-lateral{
+    min-width: auto;
+  }
+  .barra-lateral .logo{
+    display: none;
+  }
+
+  .barra-lateral .menu a span{
+    display: none;
+  }
+
+  .barra-leteral .menu a li{
+    margin:0;
+  }
+}
+
+@media screen and (max-width: 575px){
+  .barra-lateral{
+    min-height: auto;
+  }
+
+  .barra-lateral .menu a{
+    display: inline-block;
+    border-bottom: none;
+  }
+
+  .main .widget form button{
+    width: 100%;
+  }
+
+
+}
+
+
+@media screen and (max-width: 320px){
+
+  .main .tareas_prioritarias .tarea_prioritaria .foto{
+    width: 30px;
+    height: 30px;
+  }
+  
+   .main .tareas_prioritarias .tarea_prioritaria .botones button{
+    width: 100%;
+   }
+}

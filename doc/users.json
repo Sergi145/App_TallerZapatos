@@ -1,0 +1,24 @@
+[{
+	"_id" : "5a04c5ae1d195c4e88dbfcaa",
+	"name" : "Joan", 
+	"surname" : "Perez Guirado",
+	"address":"c.pau torres nº 24º 4º 1ª",
+	"password" : "Joan",
+	"image":null,
+	"email" : "Joan_PerezGuirado@hotmail.com",
+	"telephone":"6260971010",
+	"id_workshop":"5a04c5ae1d195c4e88dbfcaa" 
+
+	
+	},
+	{
+	"_id" : "5a04c5ae1d195c4e88dbfcab",
+	"name" : "David", 
+	"surname" : "Capa Moldes",
+	"address":"c.naranjos nº12 º 23º 3ª",
+	"password" : "David",
+	"image":null,
+	"email" : "David_CapAaMoldes@hotmail.com",
+	"telephone":"623456056",
+	"id_workshop":"5a04c5ae1d195c4e88dbfcaa" 
+}]

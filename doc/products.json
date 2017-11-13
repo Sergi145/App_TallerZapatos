@@ -1,0 +1,26 @@
+[{
+	"id": "1",
+	"name": "cordones",
+	"price_uni": 3.67,
+	"default_amunt": 2,
+	"image":null
+}, {
+	"id": "2",
+	"name": "tapa",
+	"price_uni": 0.04,
+	"default_amunt": 2,
+	"image":null,
+
+}, {
+	"id": "3",
+	"name": "tapa",
+	"price_uni": 0.04,
+	"default_amunt": 2,
+	"image":null,
+}, {
+	"id": "4",
+	"name": "tapa",
+	"price_uni": 0.04,
+	"default_amunt": 2,
+	"image":null,
+}]

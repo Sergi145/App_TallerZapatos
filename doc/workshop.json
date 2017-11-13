@@ -1,0 +1,14 @@
+[{
+	"_id" : "5a04c5ae1d195c4e88dbfcaa", 
+	"image" : null,
+	"password" : "$2a$10$heDQ/3irBtB3CJWPIBvJd.5UhK6IIeXg/Jpaxz.nrQCkx7OHVwlki",
+	"email" : "pedro_arreglos@hotmail.com",
+	"name" : "Arreglos Pedro",
+	},
+	{
+	"_id" : "5a04c5ae1d195c4e88dbfcab", 
+	"image" : null,
+	"password" : "$2a$10$heDQ/3irBtB3CJWPIBvJd.5UhK6IIeXg/Jpaxz.nrQCkx7OHVwlki",
+	"email" : "pedro_arreglos@hotmail.com",
+	"name" : "Arreglos Maria" 
+}]

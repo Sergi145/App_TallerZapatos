@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Taller de reparación</title>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap4/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="barra-lateral col-12 col-sm-auto">
+                <div class="logo">
+                   <img src="img/logo.jpg" alt="persona" class="logo_img">
+                </div>
+                <nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
+                    <a href="#"><i class="fa fa-home" aria-hidden="true"></i><span>Inicio</span></a>
+                    <a href="#"><i class="fa fa-users" aria-hidden="true"></i><span>Usuarios</span></a>
+                    <a href="#"><i class="fa fa-wrench" aria-hidden="true"></i><span>Productos</span></a>
+                    <a href="#"><i class="fa fa-tasks" aria-hidden="true"></i><span>Tareas</span></a>
+                    <a href="#"><i class="fa fa-street-view" aria-hidden="true"></i><span>Editar Perfil</span></a>
+                    <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Salir</span></a>
+                </nav>
+            </div>
+            <main class="main col">
+                <div class="row">
+                    <div class="columna col-lg-7">
+                        <div class="widget nueva_reparacion">
+                            <h3 class="titulo">Nueva Reparación</h3>
+                            <form action="">
+                                <input type="text" name="Titulo de la reparación" placeholder="titulo">
+                                <input type="text" name="Client" placeholder="Cliente">
+                                <textarea name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
+                            
+                                <input class="form-control" type="datetime-local" value="2017-11-19T13:45:00" id="example-datetime-local-input">
+                                <input type="text" name="Responsable" placeholder="Responsable">
+                                  <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" checked>
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Mano de Obra</span>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Tapas</span>
+                                    <select class="custom-select">
+                                        <option selected>Cantidad</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </label>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Cordones</span>
+                                     <select class="custom-select">
+                                        <option selected>Cantidad</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </label>                   
+                                
+                                <div class="d-flex justify-content-center">
+                                    <button><i class="fa fa-share" aria-hidden="true"></i>Enviar</button>
+                                </div>
+        
+                            </form>
+                        </div>
+                    </div>
+                    <div class="columna col-lg-5">
+                        <div class="widget informacion">
+                            <h3 class="titulo">Información</h3>
+                            <div class="contenedor d-flex flex-wrap">
+                                <div class="caja">
+                                    <h3>40</h3>
+                                    <p>Euros</p>
+                                </div>
+                                <div class="caja">
+                                    <h3>11/11/2017</h3>
+                                    <p>Fecha</p>
+                                </div>
+                                <div class="caja">
+                                    <img src="img/persona.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget tareas_prioritarias">
+                            <h3 class="titulo">Tareas Prioritarias</h3>
+                            <div class="contenedor">
+                                <div class="tarea_prioritaria d-flex flex-wrap">
+                                    <div class="foto_perfil">
+                                        <img src="img/persona.png" alt="persona">
+                                    </div>
+                                    <div class="texto">
+                                        <a href="#">John Doe</a><p>Responsable <a href="#">Luis Medina</a></p>
+                                        <p class="texto_comentario">Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza cl´sica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad</p>
+                                    </div>
+                                    <div class="botones d-flex justify-content-start flex-wrap w-100">
+                                        <button class="aprobar"><i class="fa fa-mobile" aria-hidden="true"> Enviar SMS</i></button>
+                                        <button class="eliminar"><i class="fa fa-trash" aria-hidden="true"> Eliminar</i></button>
+                                    </div>
+                                </div>                              
+                            </div>
+                             <div class="contenedor">
+                                <div class="tarea_prioritaria d-flex flex-wrap">
+                                    <div class="foto_perfil">
+                                        <img src="img/persona2.png" alt="persona">
+                                    </div>
+                                    <div class="texto">
+                                        <a href="#">Marc Doe</a><p>Responsable <a href="#">Luis Medina</a></p>
+                                        <p class="texto_comentario">Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza cl´sica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad</p>
+                                    </div>
+                                    <div class="botones d-flex justify-content-start flex-wrap w-100">
+                                        <button class="aprobar"><i class="fa fa-mobile" aria-hidden="true"> Enviar SMS</i></button>
+                                        <button class="eliminar"><i class="fa fa-trash" aria-hidden="true"> Eliminar</i></button>
+                                    </div>
+                                </div>                              
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script type="text/javascript" href="bootstrap4/js/bootstrap.js"></script>
+   
+    <script type="text/javascript" href="jquery-3.2.1.js"></script>
+</body>
+
+</html>

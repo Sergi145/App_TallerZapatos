@@ -1,0 +1,29 @@
+[{
+	"id": "1",
+	"title":"cambio de suela de zapatos",
+	"description":"una señora a venido a las 11.30 pidiendo un cambio de suela de zapatos por que los necesita para el lunes",
+	"date":"15/01/2017",
+	"price":"",
+	"responsable":"luis medina",
+	"id_user":"5a04c5ae1d195c4e88dbfcaa",
+
+	"...": "...",
+	"products": [{
+		"id": "1",
+		"quantitat": 2
+	}, {
+		"id": "2",
+		"quantitat": 2
+	}, {
+		"id": "3",
+		"quantitat": 2
+	}],
+	"ma_d_obra": 25,
+	"estat": "ACABADA"
+}, {
+	"...": "...",
+	"estat": "PENDENT"
+}, {
+	"...": "...",
+	"estat": "EN_PROCES"
+}]

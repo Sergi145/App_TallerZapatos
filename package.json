@@ -1,0 +1,25 @@
+{
+  "name": "taller",
+  "version": "1.0.0",
+  "description": "Api para la aplicaciónes del taller",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "connect-multiparty": "^2.1.0",
+    "express": "^4.16.2",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.19.1",
+    "mongoose": "^4.13.1",
+    "mongoose-pagination": "^1.0.0",
+    "moongoose": "0.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sergi Picazo",
+  "license": "MIT"
+}

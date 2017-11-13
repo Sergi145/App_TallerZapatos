@@ -1,0 +1,53 @@
+body{
+  background:#21455c;
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+}
+
+h1{
+ 
+  font-size: 20px;
+}
+
+p{
+  text-align: justify;
+}
+
+.navbar{
+  border-bottom: #fff 3px solid;
+  opacity: 0.8;
+}
+
+#seccion-inicio{
+ 
+  background-size: cover;
+  background-attachment: fixed;
+  
+}
+
+.card-body{
+ background-color:#cf1a21;
+border-radius: 10px 10px 10px 10px;
+}
+
+#seccion-inicio .dark-overlay{
+  background-image: url(../img/wallpaper.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+.lead{
+  text-align: center;
+}
+
+#seccion-register{
+margin-top: 20px;
+padding-bottom: 10px;
+background-color: #21455c;
+}
+
+
+#main-footer{
+  background-color: black;
+
+}
