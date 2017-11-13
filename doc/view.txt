@@ -1,0 +1,12 @@
+Nova reparació
+--------------
+
+...
+
+Seleccio de productes per la reparació
+
+[x] tapa [1]
+[x] taco [1]
+[x] cordo [2] 
+
+...
