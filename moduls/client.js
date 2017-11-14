@@ -3,7 +3,7 @@
 const mongoose=require('mongoose')
 const Schema=mongoose.Schema
 
-const UserSchema=new Schema({
+const ClientSchema=new Schema({
 	name:String,
 	surnames:String,
 	address:String,
@@ -15,4 +15,4 @@ const UserSchema=new Schema({
 
 //exportamos el modelo
 
-module.exports=mongoose.model('User',UserSchema)
+module.exports=mongoose.model('Client',ClientSchema)

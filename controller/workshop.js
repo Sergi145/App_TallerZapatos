@@ -5,7 +5,40 @@ const jwt = require('../services/jwt') //importamos el servicio jwt
 
 function getworkshop(req,res) {
 
-      res.status(404).send({ message: 'Hola que tal' })
+    if(req.params.page){
+
+        var page=req.params.page;//como vamos a utilizar paginamiento creamos una variable page
+    }
+    else{
+        var page=1;
+    }
+    
+    var workshopPerPage=3;//le decimos cada pagina cuantos clientes listara
+
+    Workshop.find().sort('name').paginate(page,workshopPerPage,(err,workshops,total)=>{//buscamos los clientes y lo ordenamos por nombre
+
+        if(err){
+
+             res.status(500).send({ message: 'Error en la petición' })
+        }
+        else{
+
+            if(!workshops){
+
+                res.status(404).send({ message: 'No hay talleres' })
+
+            }
+            else{
+                
+                return res.status(404).send({
+                    total_workshop:total,
+                    workshops:workshops
+                })
+            }
+
+        }
+
+    })
 
 }
 
@@ -118,9 +151,55 @@ function updateworkshop(req,res){
     })
 }
 
+
+function uploadImage(req,res){
+
+      var workshopId=req.params.id;//recogemos el id
+
+      var file_name='Imagen no subida';
+
+       //console.log(req.files)
+
+      if(req.files){
+        var file_path=req.files.image.path;//path donde esta guardada la imagen
+        var file_split=file_path.split('\\');//recortarmos el nombre
+        var file_name=file_split[2];
+        //console.log(file_split);
+
+        var ext_split=file_name.split('\.')
+        var file_ext=ext_split[1];//encontramos la extension de la foto
+        console.log(file_ext);
+
+        if(file_ext==='png' || file_ext==='jpg' || file_ext==='gif'){
+
+                Workshop.findByIdAndUpdate(workshopId,{image:file_name},(err,workshopUpdate)=>{//guardamos la foto
+
+                if (!workshopUpdate) { //si no existe el taller
+
+                res.status(404).send({ message: 'No se a podido actualizar el taller' })
+            }
+            else{
+
+                 res.status(200).send({ workshop:workshopUpdate})
+            }
+
+                })
+        }
+        else{
+             res.status(404).send({ message: 'Extension del archivo no valida' })
+        }
+
+      }
+      else{
+          res.status(404).send({ message: 'No has subido ninguna imagen' })
+      }
+
+}
+
 module.exports = {
     getworkshop,
     saveworkshop,
     loginworkshop,
-    updateworkshop
+    updateworkshop,
+    uploadImage
 }

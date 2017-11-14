@@ -14,10 +14,12 @@ app.use(bodyParser.json())
 
 //cargaremos las rutas
 var workshop_routes=require('./routes/workshop')
+var client_routes=require('./routes/client')
 
 
 //creamos una ruta base
 app.use('/api',workshop_routes)
+app.use('/api',client_routes)
 
 
 

@@ -5,10 +5,8 @@ const Schema=mongoose.Schema
 
 const ProductSchema=new Schema({
 	name:String,
-	picture:String,
 	price:{type:Number,default:0},
-	category:{type:String, enum:['shoes_men','shoes_women','shoes_kids']},
-	description:String,
+	cant_def:Number,
 	workshop:{type:Schema.ObjectId,ref:'Workshop'}
 })
 

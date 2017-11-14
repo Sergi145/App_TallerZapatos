@@ -7,10 +7,11 @@ const ReparationSchema=new Schema({
 	title:String,
 	description:String,
 	date:Date,
-	priority:String,
+	category:{type:String, enum:['terminada','en_proceso']},
 	price:Number,
 	responsable:String,
-	user:{type:Schema.ObjectId,ref:'User'}
+	workforce:Number,
+	client:{type:Schema.ObjectId,ref:'Client'}
 })
 
 //exportamos el modelo
