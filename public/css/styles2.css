@@ -51,3 +51,11 @@ background-color: #21455c;
   background-color: black;
 
 }
+
+
+@media(min-width: 768px) {
+  .field-label-responsive {
+    padding-top: .5rem;
+    text-align: right;
+  }
+}
