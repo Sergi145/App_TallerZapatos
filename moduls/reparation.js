@@ -12,6 +12,7 @@ const ReparationSchema=new Schema({
 	responsable:String,
 	workforce:Number,
 	client:{type:Schema.ObjectId,ref:'Client'}
+	
 })
 
 //exportamos el modelo

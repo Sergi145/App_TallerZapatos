@@ -2,24 +2,29 @@
 const express=require('express')
 const app=express()
 var mongoose = require('mongoose');
+const cors=require('cors') 
 var bodyParser = require('body-parser');
 var port=8001;
 
 
 app.use(bodyParser.urlencoded({ extended:false }))
+
 app.use(bodyParser.json())
 
 //configuramos las cabeceras http
 
+app.use(cors())
 
 //cargaremos las rutas
 var workshop_routes=require('./routes/workshop')
 var client_routes=require('./routes/client')
+var product_routes=require('./routes/product')
 
 
 //creamos una ruta base
 app.use('/api',workshop_routes)
 app.use('/api',client_routes)
+app.use('/api',product_routes)
 
 
 

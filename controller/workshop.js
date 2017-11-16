@@ -13,7 +13,7 @@ function getworkshop(req,res) {
         var page=1;
     }
     
-    var workshopPerPage=3;//le decimos cada pagina cuantos clientes listara
+    var workshopPerPage=8;//le decimos cada pagina cuantos clientes listara
 
     Workshop.find().sort('name').paginate(page,workshopPerPage,(err,workshops,total)=>{//buscamos los clientes y lo ordenamos por nombre
 
@@ -30,7 +30,7 @@ function getworkshop(req,res) {
             }
             else{
                 
-                return res.status(404).send({
+                res.status(200).send({
                     total_workshop:total,
                     workshops:workshops
                 })

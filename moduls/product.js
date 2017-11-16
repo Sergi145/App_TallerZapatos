@@ -5,7 +5,7 @@ const Schema=mongoose.Schema
 
 const ProductSchema=new Schema({
 	name:String,
-	price:{type:Number,default:0},
+	price:Number,
 	cant_def:Number,
 	workshop:{type:Schema.ObjectId,ref:'Workshop'}
 })

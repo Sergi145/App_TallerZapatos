@@ -154,6 +154,10 @@ img{
   width: 100%;
 }
 
+button{
+  cursor: pointer;
+}
+
 .logo_img{
   max-width: 300px;
   max-height: 120px;
@@ -287,4 +291,49 @@ flex: 1;
   margin-top: 7px;
   color:black;
 
+}
+
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+
+
+
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+   
+    background: black;
+    box-shadow: none;
+    border: 0;
+    color: #fff;
+    padding: 0 18px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
 }

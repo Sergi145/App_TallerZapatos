@@ -1,7 +1,30 @@
 import React, { Component } from 'react'
+import CheckBox from '../components/checkbox'
 
 
 class Home extends Component {
+
+    constructor(props){
+
+        super(props)
+        this.state={show:false};
+        this.toggleCheck=this.toggleCheck.bind(this)
+
+        var today=new Date(),
+        date=today.getDate()+'-'+(today.getMonth()+1)+'-'+(today.getFullYear()-2000);
+
+        this.state={
+            date:date
+        }
+
+    }
+
+
+    toggleCheck=()=>{
+        const{show}=this.state;
+        this.setState({show:!show})
+    }
+
     render() {
         return (
          <main className="main col">
@@ -22,15 +45,11 @@ class Home extends Component {
                                     <span className="custom-control-description">Mano de Obra</span>
                                 </label>
                                 <label className="custom-control custom-checkbox">
-                                    <input type="checkbox" className="custom-control-input"/>
+                                    <input type="checkbox" className="custom-control-input" onClick={this.toggleCheck}/>
                                     <span className="custom-control-indicator"></span>
                                     <span className="custom-control-description">Tapas</span>
-                                    <select className="custom-select">
-                                        <option>Cantidad</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
+                                    {this.state.show && <CheckBox/>}
+                                  
                                 </label>
                                 <label className="custom-control custom-checkbox">
                                     <input type="checkbox" className="custom-control-input"/>
@@ -60,7 +79,7 @@ class Home extends Component {
                                     <p>Euros</p>
                                 </div>
                                 <div className="caja">
-                                    <h3>11/11/2017</h3>
+                                    <h3>{this.state.date}</h3>
                                     <p>Fecha</p>
                                 </div>
                                 <div className="caja">
@@ -108,8 +127,6 @@ class Home extends Component {
     }
 }
 
-
-	
 
 export default Home
 

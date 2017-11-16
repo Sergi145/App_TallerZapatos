@@ -43,7 +43,7 @@ function getClients(req,res){
 		var page=1;
 	}
 	
-	var clientsPerPage=3;//le decimos cada pagina cuantos clientes listara
+	var clientsPerPage=10;//le decimos cada pagina cuantos clientes listara
 
 	Client.find().sort('name').paginate(page,clientsPerPage,(err,clients,total)=>{//buscamos los clientes y lo ordenamos por nombre
 
@@ -60,7 +60,7 @@ function getClients(req,res){
 			}
 			else{
 				
-				return res.status(404).send({
+				return res.status(200).send({
 					total_clients:total,
 					clients:clients
 				})
