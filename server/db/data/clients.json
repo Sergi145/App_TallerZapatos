@@ -1,0 +1,19 @@
+[
+{
+    "_id": "5a04c5ae1d195c4e88dbfcaa",
+    "name": "Joan",
+    "surnames": "Perez Guirado",
+    "address": "c.pau torres nº 24º 4º 1ª",
+    "image": null,
+    "email": "Joan_PerezGuirado@hotmail.com",
+    "phone": "6260971010"
+},
+{
+    "_id": "5a04c5ae1d195c4e88dbfcab",
+    "name": "David",
+    "surnames": "Capa Moldes",
+    "address": "c.naranjos nº12 º 23º 3ª",
+    "image": null,
+    "email": "David_CapAaMoldes@hotmail.com",
+    "phone": "623456056"
+}]

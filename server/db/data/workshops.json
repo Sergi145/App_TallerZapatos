@@ -1,0 +1,44 @@
+[
+{
+    "_id": "5a04c5ae1d195c4e88dbfcaa",
+    "image": null,
+    "password": "$2a$10$heDQ/3irBtB3CJWPIBvJd.5UhK6IIeXg/Jpaxz.nrQCkx7OHVwlki",
+    "email": "pedro_arreglos@hotmail.com",
+    "name": "Arreglos Pedro",
+    "products": [
+    {
+        "quantity": 2,
+        "product": "5a04c5ae1d195c4e88dbfca1"
+    },
+    {
+        "quantity": 3,
+        "product": "5a04c5ae1d195c4e88dbfca4"
+    }],
+    "clients": [
+    {
+        "client": "5a04c5ae1d195c4e88dbfcaa"
+    },
+    {
+        "client": "5a04c5ae1d195c4e88dbfcab"
+    }]
+},
+{
+    "_id": "5a04c5ae1d195c4e88dbfcab",
+    "image": null,
+    "password": "$2a$10$heDQ/3irBtB3CJWPIBvJd.5UhK6IIeXg/Jpaxz.nrQCkx7OHVwlki",
+    "email": "pedro_arreglos@hotmail.com",
+    "name": "Arreglos Maria",
+    "products": [
+    {
+        "quantity": 10,
+        "product": "5a04c5ae1d195c4e88dbfca2"
+    },
+    {
+        "quantity": 13,
+        "product": "5a04c5ae1d195c4e88dbfca3"
+    }],
+    "clients": [
+    {
+        "client": "5a04c5ae1d195c4e88dbfcaa"
+    }]
+}]
