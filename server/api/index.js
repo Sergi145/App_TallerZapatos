@@ -1,10 +1,11 @@
 'use strict'
+require('dotenv').config()
 const express=require('express')
+
 const app=express()
 var mongoose = require('mongoose');
 const cors=require('cors') 
 var bodyParser = require('body-parser');
-var port=8001;
 
 
 app.use(bodyParser.urlencoded({ extended:false }))
@@ -28,16 +29,16 @@ app.use('/api',product_routes)
 
 
 mongodb://sergi145: asda@ds255455.mlab.com:55455/sergipicazo
-mongoose.connect('mongodb://localhost:27017/taller',(err,res) => {
+mongoose.connect(process.env.DB_URL,(err,res) => {
 
     if (err) {
        console.error('error al arrancar la base de datos' + err)
     }
        console.log('conexion a la base de datos establecida')
 
-    app.listen(port, () => {
+    app.listen(process.env.PORT, () => {
 
-    console.log('servidor corriendo en el puerto ' +port)
+    console.log('servidor corriendo en el puerto ' +process.env.PORT)
 	})
 
 })
