@@ -17,7 +17,7 @@ class Products extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8001/api/products')
+    axios.get('https://pure-caverns-39521.herokuapp.com/api/products')
       .then(({data:{products}}) => {
         console.log(products)
         this.setState({products})

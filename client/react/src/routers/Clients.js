@@ -32,7 +32,7 @@ class Clients extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8001/api/clients')
+    axios.get('https://pure-caverns-39521.herokuapp.com/api/clients')
       .then(({data:{clients}}) => {
         console.log(clients)
         this.setState({clients})
