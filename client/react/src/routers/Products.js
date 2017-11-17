@@ -1,8 +1,34 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 
 class Products extends Component {
+
+    constructor(){
+    super();
+
+    this.state = {
+
+      products:[]
+    }
+
+  }
+
+  componentDidMount() {
+    axios.get('http://localhost:8001/api/products')
+      .then(({data:{products}}) => {
+        console.log(products)
+        this.setState({products})
+      })
+      .catch(error=>{
+        console.log(error.response.data)
+      })
+  }
+
+
+
+
     render() {
         return (
 
@@ -19,12 +45,16 @@ class Products extends Component {
     					</tr>
   					</thead>
   					<tbody>
-    				<tr>
-      					<td>Gomas</td>
-      					<td>3 euros</td>
-      					<td><button type="button" className="btn btn-success"><span><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span></button><button type="button" className="btn btn-danger"><span><i className="fa fa-trash" aria-hidden="true"></i></span></button></td>
+    			  {
+                this.state.products.map(function(product){
+                return<tr><td>{product.name}</td>
+                <td>{product.price} euros</td>
+                <td><button type="button" className="btn btn-success"><span><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span></button><button type="button" className="btn btn-danger"><span><i className="fa fa-trash" aria-hidden="true"></i></span></button></td>
 
-      				</tr>
+                </tr>
+                })
+              
+              }
 
   					</tbody>
 					</table>

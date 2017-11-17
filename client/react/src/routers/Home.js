@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import CheckBox from '../components/checkbox'
+import axios from 'axios'
+
 
 
 class Home extends Component {
@@ -14,10 +16,23 @@ class Home extends Component {
         date=today.getDate()+'-'+(today.getMonth()+1)+'-'+(today.getFullYear()-2000);
 
         this.state={
-            date:date
+            date:date,
+            products:[]
         }
 
     }
+
+
+      componentDidMount() {
+    axios.get('http://localhost:8001/api/products')
+      .then(({data:{products}}) => {
+        console.log(products)
+        this.setState({products})
+      })
+      .catch(error=>{
+        console.log(error.response.data)
+      })
+  }
 
 
     toggleCheck=()=>{
@@ -37,13 +52,14 @@ class Home extends Component {
                                 <input type="text" name="Client" placeholder="Cliente" />
                                 <textarea name="descripcion" id="descripcion" placeholder="Descripción"></textarea>
                             
-                                <input className="form-control" type="datetime-local" value="2017-11-19T13:45:00" id="example-datetime-local-input" />
+                                <input className="form-control" type="datetime-local" value={this.state.date} id="example-datetime-local-input" />
                                 <input type="text" name="Responsable" placeholder="Responsable"/>
                                   <label className="custom-control custom-checkbox">
                                     <input type="checkbox" className="custom-control-input" checked/>
                                     <span className="custom-control-indicator"></span>
                                     <span className="custom-control-description">Mano de Obra</span>
                                 </label>
+
                                 <label className="custom-control custom-checkbox">
                                     <input type="checkbox" className="custom-control-input" onClick={this.toggleCheck}/>
                                     <span className="custom-control-indicator"></span>
@@ -51,17 +67,18 @@ class Home extends Component {
                                     {this.state.show && <CheckBox/>}
                                   
                                 </label>
-                                <label className="custom-control custom-checkbox">
-                                    <input type="checkbox" className="custom-control-input"/>
-                                    <span className="custom-control-indicator"></span>
-                                    <span className="custom-control-description">Cordones</span>
-                                     <select className="custom-select">
-                                        <option selected>Cantidad</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </label>                   
+
+                                 {
+                                    this.state.products.map(function(product){
+                                        return  <label className="custom-control custom-checkbox">
+                                        <input type="checkbox" className="custom-control-input" />
+                                        <span className="custom-control-indicator"></span>
+                                        <span className="custom-control-description">{product.name}</span>
+                                       
+                                     </label>       
+                                    })
+                    
+                                }              
                                 
                                 <div className="d-flex justify-content-center">
                                     <button><i className="fa fa-share" aria-hidden="true"></i>Enviar</button>

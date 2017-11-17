@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'	
 
+
+function searchingFor(term){
+  return function(x){
+    return x.surnames.toLowerCase().includes(term.toLowerCase() || !term)
+  }
+}
+
 class Clients extends Component {
 
 	constructor(){
@@ -9,16 +16,26 @@ class Clients extends Component {
 
     this.state = {
 
-      workshops:[]
+      clients:[],
+      term:''
+
     }
+
+    this.searchHandler=this.searchHandler.bind(this);
 
 	}
 
+  searchHandler(event){
+
+    this.setState({term:event.target.value})
+
+  }
+
   componentDidMount() {
-    axios.get('http://localhost:8001/api/workshop')
-      .then(({data:{workshops}}) => {
-        console.log(workshops)
-        this.setState({workshops})
+    axios.get('http://localhost:8001/api/clients')
+      .then(({data:{clients}}) => {
+        console.log(clients)
+        this.setState({clients})
       })
       .catch(error=>{
         console.log(error.response.data)
@@ -30,15 +47,15 @@ class Clients extends Component {
 
         	<main className="main col">
 
-          <div class="container">
-  <div class="row">
-        <div class="col-md-4">
+          <div className="container">
+  <div className="row">
+        <div className="col-md-4">
             <div id="custom-search-input">
-                <div class="input-group col-md-12">
-                    <input type="text" class="form-control input-lg" placeholder="Buscar" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="button">
-                           <i class="fa fa-search" aria-hidden="true"></i>
+                <div className="input-group col-md-12">
+                    <input type="text" onChange={this.searchHandler} className="form-control input-lg" placeholder="Buscar Apellidos" />
+                    <span className="input-group-btn">
+                        <button className="btn btn-info btn-lg" type="button">
+                           <i className="fa fa-search" aria-hidden="true"></i>
                         </button>
                     </span>
                 </div>
@@ -59,11 +76,11 @@ class Clients extends Component {
   					</thead>
   					<tbody>
     				  {
-                this.state.workshops.map(function(workshop){
-                return<tr><td>{workshop.name}</td>
-                <td>{workshop.email}</td>
-                <td>{workshop.image}</td>
-                <td><button type="button" className="btn btn-primary"><span><i class="fa fa-eye" aria-hidden="true"></i></span></button><button type="button" className="btn btn-success"><span><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span></button><button type="button" className="btn btn-danger"><span><i className="fa fa-trash" aria-hidden="true"></i></span></button></td>
+                this.state.clients.filter(searchingFor(this.state.term)).map(function(client){
+                return<tr><td>{client.name}</td>
+                <td>{client.surnames}</td>
+                <td>{client.telephone}</td>
+                <td><button type="button" className="btn btn-primary"><span><i className="fa fa-eye" aria-hidden="true"></i></span></button><button type="button" className="btn btn-success"><span><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span></button><button type="button" className="btn btn-danger"><span><i className="fa fa-trash" aria-hidden="true"></i></span></button></td>
 
                 </tr>
                 })

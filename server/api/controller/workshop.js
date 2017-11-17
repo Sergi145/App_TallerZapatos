@@ -1,6 +1,6 @@
 'use strict'
 const bcrypt = require('bcrypt-nodejs') // importamos el tema de encriptación de contraseñas
-const Workshop = require('../moduls/workshop') //importamos el modelo de workshop
+const Workshop = require('../data/models/WorkshopModel') //importamos el modelo de workshop
 const jwt = require('../services/jwt') //importamos el servicio jwt 
 
 function getworkshop(req,res) {

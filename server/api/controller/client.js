@@ -3,8 +3,8 @@
 const path = require('path');
 const fs = require('fs');
 const mongoosePaginate=require('mongoose-pagination')//como vamos a utilizar paginación importamos el mongoosepagination
-const Client = require('../moduls/client')
-const Reparation = require('../moduls/reparation')
+const Client = require('../data/models/ClientModel')
+const Reparation = require('../data/models/ReparationModel')
 //const Product = require('../moduls/product')
 
 function getClient(req, res) {
@@ -25,7 +25,7 @@ function getClient(req, res) {
 
 			}
 			else{
-				res.status(404).send({client})
+				res.status(200).send({client})
 			}
 		}
 	})

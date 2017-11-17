@@ -9,7 +9,7 @@ const ClientSchema = new Schema({
     address: String,
     image: String,
     email: String,
-    phone: Number
+    telephone: Number
 })
 
 //exportamos el modelo
