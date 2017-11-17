@@ -1,43 +1,47 @@
-[{
-	"id": "16868686868",
-	"title":"cambio de suela de zapatos",
-	"description":"una señora a venido a las 11.30 pidiendo un cambio de suela de zapatos por que los necesita para el lunes",
-	"date":"15/01/2017",
-	"price":"",
-	"responsable":"luis medina",
-	"id_client":"5a04c5ae1d195c4e88dbfcaa",
-	"products": [{
-		"id": "1",
-		"quantitat": 2
-	}, {
-		"id": "2",
-		"quantitat": 2
-	}, {
-		"id": "3",
-		"quantitat": 2
-	}],
-	"ma_d_obra": 25,
-	"state": "ACABADA",
-	},
+[
+    {
+        "id": "16868686868",
+        "title": "cambio de suela de zapatos",
+        "description": "una señora a venido a las 11.30 pidiendo un cambio de suela de zapatos por que los necesita para el lunes",
+        "date": "15/01/2017",
+        "price": "",
+        "responsable": "luis medina",
+        "id_client": "5a04c5ae1d195c4e88dbfcaa",
+        "products": [
+        {
+            "id": "1",
+            "quantitat": 2
+        },
+        {
+            "id": "2",
+            "quantitat": 2
+        },
+        {
+            "id": "3",
+            "quantitat": 2
+        }],
+        "ma_d_obra": 25,
+        "state": "ACABADA"
+    },
+    {
 
-	{
-
-	"id": "1686868683",
-	"title":"pegar las gomas",
-	"description":"una abuelo con su nieta nos a dado los zapatos para que se lo arreglemos lo antes posible",
-	"date":"17/01/2017",
-	"price":"",
-	"responsable":"luis castillejo",
-	"id_client":"5a04c5ae1d195c4e88dbfcaa",
-	"products": [{
-		"id": "1",
-		"quantitat": 2
-	}, {
-		"id": "3",
-		"quantitat": 2
-	}],
-	"ma_d_obra": 25,
-	"state": "en proceso",
-
-
-}]
+        "id": "1686868683",
+        "title": "pegar las gomas",
+        "description": "una abuelo con su nieta nos a dado los zapatos para que se lo arreglemos lo antes posible",
+        "date": "17/01/2017",
+        "price": "",
+        "responsable": "luis castillejo",
+        "id_client": "5a04c5ae1d195c4e88dbfcaa",
+        "products": [
+        {
+            "id": "1",
+            "quantitat": 2
+        },
+        {
+            "id": "3",
+            "quantitat": 2
+        }],
+        "ma_d_obra": 25,
+        "state": "en proceso"
+    }
+]

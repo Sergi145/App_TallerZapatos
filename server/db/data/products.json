@@ -1,22 +1,25 @@
-[{
-	"_id": "5a04c5ae1d195c4e88dbfca1",
-	"name": "cordones",
-	"price": 3.67,
-	"default_amunt": 2,
-}, {
-	"_id": "5a04c5ae1d195c4e88dbfca2",
-	"name": "pegamento",
-	"price": 0.04,
-	"default_amunt": 2,
-
-}, {
-	"_id": "5a04c5ae1d195c4e88dbfca3",
-	"name": "suela",
-	"price": 0.04,
-	"default_amunt": 2,
-}, {
-	"_id": "5a04c5ae1d195c4e88dbfca4",
-	"name": "tapa",
-	"price": 0.04,
-	"default_amunt": 2,
+[
+{
+    "_id": "5a04c5ae1d195c4e88dbfca1",
+    "name": "cordones",
+    "price": 3.67,
+    "default_amunt": 2
+},
+{
+    "_id": "5a04c5ae1d195c4e88dbfca2",
+    "name": "pegamento",
+    "price": 0.04,
+    "default_amunt": 2
+},
+{
+    "_id": "5a04c5ae1d195c4e88dbfca3",
+    "name": "suela",
+    "price": 0.04,
+    "default_amunt": 2
+},
+{
+    "_id": "5a04c5ae1d195c4e88dbfca4",
+    "name": "tapa",
+    "price": 0.04,
+    "default_amunt": 2
 }]
