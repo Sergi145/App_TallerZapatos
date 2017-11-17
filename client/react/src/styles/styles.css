@@ -287,10 +287,23 @@ flex: 1;
  
 }
 
+.modal-header{
+  background-color: black;
+  color:#fff;
+}
+
+.x{
+  color: #fff;
+}
+
 .search{
   margin-top: 7px;
   color:black;
 
+}
+
+.space{
+  margin:10px;
 }
 
 .btn-circle.btn-xl {

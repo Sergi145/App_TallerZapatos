@@ -57,6 +57,7 @@ class Clients extends Component {
                         <button className="btn btn-info btn-lg" type="button">
                            <i className="fa fa-search" aria-hidden="true"></i>
                         </button>
+                        
                     </span>
                 </div>
             </div>

@@ -6,7 +6,8 @@ const Schema = mongoose.Schema
 const ProductSchema = new Schema({
     name: String,
     price: Number,
-    default_amount: Number
+    default_amount: Number,
+    client:{type:Schema.ObjectId,ref:'Workshop'}
 })
 
 //exportamos el modelo

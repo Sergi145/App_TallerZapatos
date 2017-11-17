@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import AxiosPost from 'axios-post'
 
 
 class Products extends Component {
@@ -24,6 +25,8 @@ class Products extends Component {
       .catch(error=>{
         console.log(error.response.data)
       })
+
+      
   }
 
 
@@ -33,8 +36,39 @@ class Products extends Component {
         return (
 
             	<main className="main col">
-            <button type="button" class="btn btn-info btn-circle btn-xl" data-toggle="modal" data-target="#addUser"><i class="fa fa-plus" aria-hidden="true"></i></button>
-            
+            <button type="button" class="btn btn-info btn-circle btn-xl" data-toggle="modal" data-target="#smallShoes"><i class="fa fa-plus" aria-hidden="true"></i></button>
+          
+              <div class="modal fade" id="smallShoes" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true">
+                  <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="x">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="modalLabelSmall">Agregar Producto</h4>
+                    </div>
+
+                    <form>
+                      <div class="form-group space">
+                      
+                        <input type="email" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Nombre"/>
+                         
+                      </div>
+                      <div class="form-group space">
+                      
+                      <input type="number" class="form-control" id="exampleInputPrice" placeholder="Precio"/>
+
+                      </div>
+
+                      <button type="button" class="btn btn-success space">Agregar</button>
+
+                      </form>
+                          
+                  </div>
+                  </div>
+             </div>
+                                
              <div className="row">
                     <div className="columna col-lg-12">
                      <table className="table">

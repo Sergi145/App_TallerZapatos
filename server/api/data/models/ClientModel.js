@@ -9,7 +9,11 @@ const ClientSchema = new Schema({
     address: String,
     image: String,
     email: String,
-    telephone: Number
+    telephone: Number,
+    reparation: [{
+        quantity: Number,
+        product: { type: Schema.ObjectId, ref: 'Reparation' }
+    }],
 })
 
 //exportamos el modelo

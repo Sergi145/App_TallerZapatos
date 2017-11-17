@@ -17,7 +17,8 @@ class Home extends Component {
 
         this.state={
             date:date,
-            products:[]
+            products:[],
+         
         }
 
     }
@@ -68,14 +69,16 @@ class Home extends Component {
                                   
                                 </label>
 
-                                 {
-                                    this.state.products.map(function(product){
-                                        return  <label className="custom-control custom-checkbox">
-                                        <input type="checkbox" className="custom-control-input" />
+                                {
+                                    this.state.products.length && this.state.products.map(function(product){
+                                        
+                                        return  (<label className="custom-control custom-checkbox">
+                                        <input type="checkbox" className="custom-control-input"/>
                                         <span className="custom-control-indicator"></span>
                                         <span className="custom-control-description">{product.name}</span>
+                                    
                                        
-                                     </label>       
+                                     </label>)       
                                     })
                     
                                 }              

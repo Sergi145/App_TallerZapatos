@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
+    "axios-post": "0.0.2",
     "cors": "^2.8.4",
     "react": "^16.1.1",
     "react-addons-css-transition-group": "^15.6.2",
@@ -14,7 +15,8 @@
     "react-dom": "^16.1.1",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
-    "reactstrap": "^4.8.0"
+    "reactstrap": "^4.8.0",
+    "sweetalert-react": "^0.4.10"
   },
   "scripts": {
     "start": "react-scripts start",
