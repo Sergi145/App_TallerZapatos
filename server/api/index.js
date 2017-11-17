@@ -27,7 +27,7 @@ app.use('/api',client_routes)
 app.use('/api',product_routes)
 
 
-
+mongodb://sergi145: asda@ds255455.mlab.com:55455/sergipicazo
 mongoose.connect('mongodb://localhost:27017/taller',(err,res) => {
 
     if (err) {

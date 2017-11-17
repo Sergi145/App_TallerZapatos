@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
-    "axios-post": "0.0.2",
     "cors": "^2.8.4",
     "react": "^16.1.1",
     "react-addons-css-transition-group": "^15.6.2",
