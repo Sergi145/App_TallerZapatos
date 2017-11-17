@@ -1,3 +1,29 @@
+### From / to a json array file and a local server
+
+```bash
+$ mongoimport -d taller -c clients --drop --jsonArray --file data/clients.json
+
+$ mongoexport -d taller -c clients --jsonArray -o data/clients.json
+```
+
+```bash
+$ mongoimport -d taller -c products --drop --jsonArray --file data/products.json
+
+$ mongoexport -d taller -c products --jsonArray -o data/products.json
+```
+
+```bash
+$ mongoimport -d taller -c workshops --drop --jsonArray --file data/workshops.json
+
+$ mongoexport -d taller -c workshops --jsonArray -o data/workshops.json
+```
+
+```bash
+$ mongoimport -d taller -c reparations --drop --jsonArray --file data/reparations.json
+
+$ mongoexport -d taller -c reparations --jsonArray -o data/reparations.json
+```
+
 ### From / to a json array file and a remote server (mLab)
 
 mongodb://sergi145:<pasword>@ds255455.mlab.com:55455/sergipicazo
