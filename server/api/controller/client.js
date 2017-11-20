@@ -88,6 +88,7 @@ function saveClient(req, res) {
     client.image = 'null'
     client.email = params.email
     client.telephone = params.telephone
+    client.workshop=params.workshop
 
 
     client.save((err, clientStored) => {

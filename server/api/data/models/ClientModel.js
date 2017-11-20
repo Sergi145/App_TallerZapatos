@@ -12,7 +12,7 @@ const ClientSchema = new Schema({
     telephone: Number,
     reparation: [{
         quantity: Number,
-        product: { type: Schema.ObjectId, ref: 'Reparation' }
+        reparation: { type: Schema.ObjectId, ref: 'Reparation' }
     }],
 })
 

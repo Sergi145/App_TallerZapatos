@@ -47,7 +47,7 @@ class Home extends Component {
                 <div className="row">
                     <div className="columna col-lg-7">
                         <div className="widget nueva_reparacion">
-                            <h3 className="titulo">Nueva Reparaciónnnnnn</h3>
+                            <h3 className="titulo">Nueva Reparación</h3>
                             <form>
                                 <input type="text" name="Titulo de la reparación" placeholder="titulo" />
                                 <input type="text" name="Client" placeholder="Cliente" />

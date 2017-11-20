@@ -7,12 +7,15 @@ const ReparationSchema=new Schema({
 	title:String,
 	description:String,
 	date:Date,
-	category:{type:String, enum:['terminada','en_proceso']},
 	price:Number,
+	id_client:String,
 	responsable:String,
-	workforce:Number,
-	client:{type:Schema.ObjectId,ref:'Client'}
-	
+	client:{type:Schema.ObjectId,ref:'Client'},
+	 product: [{
+        quantity: Number,
+        product: { type: Schema.ObjectId, ref: 'Product' }
+    }],
+
 })
 
 //exportamos el modelo

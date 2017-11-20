@@ -12,31 +12,37 @@ class Profile extends Component {
                     <div className="columna col-lg-12">
 
 
+  <div class="row">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <form method="POST" action="#" role="form">
+                            <div class="form-group">
+                                <h2>Editar Perfil</h2>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="signupName">Nombre</label>
+                                <input id="signupName" type="text" maxlength="50" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="signupEmail">Email</label>
+                                <input id="signupEmail" type="email" maxlength="50" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="signupEmailagain">Imagen</label>
+                                <input id="signupEmailagain" type="file" maxlength="50" class="form-control"/>
+                            </div>
+                           
+                            <div class="form-group">
+                                <button id="signupSubmit" type="submit" class="btn btn-info btn-block">Validar Campos</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#smallShoes">
-Click Me
-</button>
 
-
-<div class="modal fade" id="smallShoes" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true">
-<div class="modal-dialog modal-sm">
-<div class="modal-content">
-
-<div class="modal-header">
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-<h4 class="modal-title" id="modalLabelSmall">Small Shoes</h4>
-</div>
-
-<div class="modal-body">
-Small shoes are typically worn by people with small feet.
-</div>
-
-</div>
-</div>
-</div>
-                    
+          
                     
                   </div>
                  

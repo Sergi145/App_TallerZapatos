@@ -54,6 +54,7 @@ function saveworkshop(req, res) {
     workshop.email = params.email
     workshop.password = params.password
     workshop.image = 'null'
+   
 
     if (params.password) {
         //encriptar contraseña y guardar los datos

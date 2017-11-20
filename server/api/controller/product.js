@@ -85,6 +85,7 @@ function saveProduct(req, res) {
     product.name = params.name
     product.cant_def = params.cant_def
     product.price = params.price
+    product.workshop=params.workshop
    
 
     product.save((err, productStored) => {

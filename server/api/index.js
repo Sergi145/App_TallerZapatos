@@ -20,12 +20,14 @@ app.use(cors())
 var workshop_routes=require('./routes/workshop')
 var client_routes=require('./routes/client')
 var product_routes=require('./routes/product')
+var reparation_routes=require('./routes/reparation')
 
 
 //creamos una ruta base
 app.use('/api',workshop_routes)
 app.use('/api',client_routes)
 app.use('/api',product_routes)
+app.use('/api',reparation_routes)
 
 
 mongodb://sergi145: asda@ds255455.mlab.com:55455/sergipicazo
