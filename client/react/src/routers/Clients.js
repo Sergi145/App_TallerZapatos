@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import axios from 'axios'	
+import { Link,Route } from 'react-router-dom'
+import axios from 'axios'
+import Api from '../api/api'
+import swal from 'sweetalert'
+import InfoTasks from '../routers/InfoTasks'
+
 
 
 function searchingFor(term){
@@ -17,7 +21,13 @@ class Clients extends Component {
     this.state = {
 
       clients:[],
-      term:''
+      term:'',
+      name:'',
+      surnames:'',
+      address:'',
+      image:'',
+      email:'',
+      telephone:''
 
     }
 
@@ -32,24 +42,222 @@ class Clients extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://pure-caverns-39521.herokuapp.com/api/clients')
+    axios.get('http://localhost:8001/api/clients')
       .then(({data:{clients}}) => {
         console.log(clients)
         this.setState({clients})
       })
       .catch(error=>{
-        console.log(error.response.data)
+        console.log(error)
       })
+  }
+
+
+  onChangeName=(event)=>{
+
+    event.preventDefault()
+
+      this.setState({
+
+        name:event.target.value
+
+
+      })
+
+  }
+
+  onChangeSurnames=(event)=>{
+
+    event.preventDefault()
+
+      this.setState({
+
+        surnames:event.target.value
+
+
+      })
+
+  }
+
+
+  onChangeAddress=(event)=>{
+
+    event.preventDefault()
+
+      this.setState({
+
+        address:event.target.value
+
+
+      })
+
+  }
+
+  onChangeEmail=(event)=>{
+
+    event.preventDefault()
+
+      this.setState({
+
+        email:event.target.value
+
+
+      })
+
+  }
+
+
+  onChangeImage=(event)=>{
+
+    event.preventDefault()
+
+      this.setState({
+
+        image:event.target.value
+
+
+      })
+
+  }
+
+  onChangeTelephone=(event)=>{
+
+    event.preventDefault()
+
+      this.setState({
+
+        telephone:event.target.value
+
+
+      })
+
+  }
+
+
+    handlerCreateClient=(name,surnames,address,image,email,telephone)=>{
+
+    console.log(name);
+    console.log(surnames);
+    console.log(address);
+    console.log(image);
+    console.log(email);
+    console.log(telephone);
+
+     Api.createClient(name,surnames,address,image,email,telephone)
+
+
+    swal ( "Nuevo cliente agregado a tu taller" ,  "Client agregado" ,  "success" )
+
+     axios.get('https://pure-caverns-39521.herokuapp.com/api/clients')
+      .then(({data:{clients}}) => {
+        console.log(clients)
+        this.setState({clients})
+      })
+      .catch(error=>{
+        console.log(error)
+      })
+
+  }
+
+
+  handlerModificateClient=(_id,name,surnames,address,image,email,telephone)=>{
+
+
+     Api.editClient(_id,name,surnames,address,image,email,telephone)
+
+
+    swal ( "El cliente de tu taller a sido modificado" ,  "Cliente modificado" ,  "success" )
+
+     axios.get('https://pure-caverns-39521.herokuapp.com/api/clients')
+      .then(({data:{clients}}) => {
+        console.log(clients)
+        this.setState({clients})
+      })
+      .catch(error=>{
+        console.log(error)
+      })
+
+  }
+
+   deleteClient=(_id)=>{
+
+    Api.deleteClient(_id)
+
+   swal ( "Un usario menos en tu taller" ,  "Usuario eliminado" ,  "success" )
+    //console.log(_id)     
+  }
+
+   getId(_id){
+
+    this.setState({
+
+      _id
+
+    })
+
   }
 
     render() {
         return (
-
         	<main className="main col">
+          <button type="button" className="btn btn-info btn-circle btn-xl" data-toggle="modal" data-target="#smallShoes"><i className="fa fa-plus" aria-hidden="true"></i></button>
+          <div className="modal fade" id="smallShoes" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true">
+                  <div className="modal-dialog modal-sm">
+                  <div className="modal-content">
 
-          <div className="container">
-  <div className="row">
-        <div className="col-md-4">
+                    <div className="modal-header">
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" className="x">&times;</span>
+                    </button>
+                    <h4 className="modal-title" id="modalLabelSmall">Agregar Cliente</h4>
+                    </div>
+
+                    <form>
+                      <div className="form-group space">
+                      
+                        <input type="text" className="form-control" id="exampleInputName" aria-describedby="NamelHelp" placeholder="Nombre" onChange={this.onChangeName}/>
+                         
+                      </div>
+                      <div className="form-group space">
+                      
+                        <input type="text" className="form-control" id="exampleInputSurname" aria-describedby="SurnameslHelp" placeholder="Apellidos" onChange={this.onChangeSurnames}/>
+                         
+                      </div>
+                      <div className="form-group space">
+                      
+                        <input type="text" className="form-control" id="exampleInputAddress" aria-describedby="AddresslHelp" placeholder="Dirección" onChange={this.onChangeAddress}/>
+                         
+                      </div>
+                      <div className="form-group space">
+                      
+                      <input type="email" className="form-control" id="exampleInputEmail" placeholder="Email" onChange={this.onChangeEmail}/>
+
+                      </div>
+
+                       <div className="form-group space">
+                      
+                      <input type="number" className="form-control" id="exampleInputTelephone" placeholder="Telefono movil" onChange={this.onChangeTelephone}/>
+
+                      </div>
+
+                      <div className="form-group space">
+                      
+                      <input type="file" className="form-control" id="exampleInputImage" placeholder="Foto" onChange={this.onChangeImage}/>
+
+                      </div>
+
+                      <button type="button" className="btn btn-success space" onClick={()=>{this.handlerCreateClient(this.state.name,this.state.surnames,this.state.address,this.state.image,this.state.email,this.state.telephone)}}>Agregar</button>
+
+                      </form>
+                          
+                  </div>
+                  </div>
+             </div>
+
+
+          <div className="d-flex align-items-end flex-column">
+        <div className="row">
+        <div className="mb-auto p-4">
             <div id="custom-search-input">
                 <div className="input-group col-md-12">
                     <input type="text" onChange={this.searchHandler} className="form-control input-lg" placeholder="Buscar Apellidos" />
@@ -61,10 +269,10 @@ class Clients extends Component {
                     </span>
                 </div>
             </div>
-        </div>
+        </div>       
   </div>
 </div>
-       
+      
   		       <div className="row">
                     <div className="columna col-lg-12">
                      <table className="table">
@@ -73,23 +281,83 @@ class Clients extends Component {
       						<th>Nombre</th>
       						<th>Apellidos</th>
       						<th>Telefono</th>
+                  <th>Email</th>
+                  <th>Dirección</th>
+                  <th>Foto</th>
     					</tr>
   					</thead>
   					<tbody>
     				  {
-                this.state.clients.filter(searchingFor(this.state.term)).map(function(client){
+                this.state.clients.filter(searchingFor(this.state.term)).map((client)=>{
                 return<tr><td>{client.name}</td>
                 <td>{client.surnames}</td>
                 <td>{client.telephone}</td>
-                <td><button type="button" className="btn btn-primary"><span><i className="fa fa-eye" aria-hidden="true"></i></span></button><button type="button" className="btn btn-success"><span><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span></button><button type="button" className="btn btn-danger"><span><i className="fa fa-trash" aria-hidden="true"></i></span></button></td>
+                <td>{client.email}</td>
+                <td>{client.address}</td>
+                <td><img class="artist" src={client.image}/>{client.image}</td>
+                <td><button type="button" className="btn btn-primary" ><Route path='/clients/:idTasks' component={InfoTasks}/><span><i className="fa fa-eye" aria-hidden="true"></i></span></button><button type="button" className="btn btn-success" data-toggle="modal" data-target="#editClient" onClick={()=>{this.getId(client._id)}}><span><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span></button><button type="button" className="btn btn-danger" onClick={()=>{this.deleteClient(client._id)}}><span><i className="fa fa-trash" aria-hidden="true"></i></span></button></td>
 
                 </tr>
                 })
       				
               }
   
-
   					</tbody>
+
+              <div className="modal fade" id="editClient" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true">
+                  <div className="modal-dialog modal-sm">
+                  <div className="modal-content">
+
+                    <div className="modal-header">
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" className="x">&times;</span>
+                    </button>
+                    <h4 className="modal-title" id="modalLabelSmall">Editar Cliente</h4>
+                    </div>
+
+                    <form>
+                      <div className="form-group space">
+                      
+                        <input type="text" className="form-control" id="exampleInputName" aria-describedby="NamelHelp" placeholder="Nombre" onChange={this.onChangeName}/>
+                         
+                      </div>
+                      <div className="form-group space">
+                      
+                        <input type="text" className="form-control" id="exampleInputSurname" aria-describedby="SurnameslHelp" placeholder="Apellidos" onChange={this.onChangeSurnames}/>
+                         
+                      </div>
+                      <div className="form-group space">
+                      
+                        <input type="text" className="form-control" id="exampleInputAddress" aria-describedby="AddresslHelp" placeholder="Dirección" onChange={this.onChangeAddress}/>
+                         
+                      </div>
+                      <div className="form-group space">
+                      
+                      <input type="email" className="form-control" id="exampleInputEmail" placeholder="Email" onChange={this.onChangeEmail}/>
+
+                      </div>
+
+                       <div className="form-group space">
+                      
+                      <input type="number" className="form-control" id="exampleInputTelephone" placeholder="Telefono movil" onChange={this.onChangeTelephone}/>
+
+                      </div>
+
+                      <div className="form-group space">
+                      
+                      <input type="file" className="form-control" id="exampleInputImage" placeholder="Foto" onChange={this.onChangeImage}/>
+
+                      </div>
+
+                      <button type="button" className="btn btn-success space" onClick={()=>{this.handlerModificateClient(this.state._id,this.state.name,this.state.surnames,this.state.address,this.state.image,this.state.email,this.state.telephone)}}>Modificar</button>
+
+                      </form>
+                          
+                  </div>
+                  </div>
+             </div>
+
+
 
 					</table>
                 	</div>
@@ -101,6 +369,5 @@ class Clients extends Component {
        )
     }
 }
-
 
 export default Clients

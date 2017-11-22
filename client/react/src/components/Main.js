@@ -7,7 +7,7 @@ import Products from '../routers/Products'
 import Profile from '../routers/Profile'
 import Tasks from '../routers/Tasks'
 import Clients from '../routers/Clients'
-
+import InfoTasks from '../routers/InfoTasks'
 
 const Main = () => (
     

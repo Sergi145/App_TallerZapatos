@@ -5,13 +5,14 @@ const fs = require('fs');
 const mongoosePaginate=require('mongoose-pagination')//como vamos a utilizar paginación importamos el mongoosepagination
 const Client = require('../data/models/ClientModel')
 const Reparation = require('../data/models/ReparationModel')
+const Workshop = require('../data/models/WorkshopModel')
 //const Product = require('../moduls/product')
 
 function getClient(req, res) {
 
 	var clientId=req.params.id;
 
-	Client.findById(clientId,(err,client)=>{
+	Client.findById(clientId).populate({path:'workshop'}).exec((err,client)=>{
 
 		if(err){
 
@@ -154,7 +155,7 @@ function deleteClient(req,res){
             }
             else{
 
-                 res.status(200).send({clientDelete})
+                 //res.status(200).send({clientDelete})
                  //ahora hacemos que tambien borre todas las tareas del cliente que estaban relacionadas con el
 
                  Reparation.find({client:clientDelete._id}).remove((err,reparationDelete)=>{
@@ -181,10 +182,56 @@ function deleteClient(req,res){
 	})
 }
 
+
+function uploadImage(req,res){
+
+      var clientId=req.params.id;//recogemos el id
+
+      var file_name='Imagen no subida';
+
+       //console.log(req.files)
+
+      if(req.files){
+        var file_path=req.files.image.path;//path donde esta guardada la imagen
+        var file_split=file_path.split('\\');//recortarmos el nombre
+        var file_name=file_split[2];
+        //console.log(file_split);
+
+        var ext_split=file_name.split('\.')
+        var file_ext=ext_split[1];//encontramos la extension de la foto
+        console.log(file_ext);
+
+        if(file_ext==='png' || file_ext==='jpg' || file_ext==='gif'){
+
+                Client.findByIdAndUpdate(clientId,{image:file_name},(err,clientUpdate)=>{//guardamos la foto
+
+                if (!clientUpdate) { //si no existe el taller
+
+                res.status(404).send({ message: 'No se a podido actualizar el cliente' })
+            }
+            else{
+
+                 res.status(200).send({ client:clientUpdate})
+            }
+
+                })
+        }
+        else{
+             res.status(404).send({ message: 'Extension del archivo no valida' })
+        }
+
+      }
+      else{
+          res.status(404).send({ message: 'No has subido ninguna imagen' })
+      }
+
+}
+
 module.exports = {
     getClient,
     saveClient,
     getClients,
     updateClient,
-    deleteClient
+    deleteClient,
+    uploadImage
 }

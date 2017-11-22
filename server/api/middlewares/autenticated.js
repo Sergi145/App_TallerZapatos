@@ -26,7 +26,7 @@ exports.ensureAuth=function(req,res,next){
 		}		
 		catch(error){
 			console.error(error)
-			return res.status(404).send({message:'El token no es valido'})
+			return res.status(401).send({message:'El token no es valido'})
 		}
 
 		req.user=payload;//aqui introducimos todo los datos del usuario

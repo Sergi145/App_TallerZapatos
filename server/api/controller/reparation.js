@@ -5,6 +5,7 @@ const fs = require('fs');
 const mongoosePaginate=require('mongoose-pagination')//como vamos a utilizar paginación importamos el mongoosepagination
 const Reparation = require('../data/models/ReparationModel')
 const Product = require('../data/models/ProductModel')
+const Client = require('../data/models/ClientModel')
 
 
 function getReparations(req,res){
@@ -19,7 +20,7 @@ function getReparations(req,res){
 		var page=1;//pagina por defecto
 	}
 	
-	var reparationsPerPage=10;//le decimos cada pagina cuantos clientes listara
+	var reparationsPerPage=3;//le decimos cada pagina cuantos clientes listara
 
 	Reparation.find().sort('date').paginate(page,reparationsPerPage,(err,reparations,total)=>{//buscamos los clientes y lo ordenamos por nombre
 
@@ -53,7 +54,7 @@ function getReparation(req, res) {
 
 	var reparationId=req.params.id;
 
-	Reparation.findById(reparationId,(err,reparation)=>{
+	Reparation.findById(reparationId).populate({path:'client'}).exec((err,reparation)=>{
 
 		if(err){
 
@@ -67,7 +68,7 @@ function getReparation(req, res) {
 
 			}
 			else{
-				res.status(404).send({reparation})
+				res.status(200).send({reparation})
 			}
 		}
 	})
@@ -89,7 +90,7 @@ function saveReparation(req, res) {
     reparation.date= params.date
     reparation.price=params.price
     reparation.responsable=params.responsable
-    reparation.id_client=params.id_client
+    reparation.client=params.client
     
    
 

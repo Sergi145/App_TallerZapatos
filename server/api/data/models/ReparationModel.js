@@ -8,7 +8,6 @@ const ReparationSchema=new Schema({
 	description:String,
 	date:Date,
 	price:Number,
-	id_client:String,
 	responsable:String,
 	client:{type:Schema.ObjectId,ref:'Client'},
 	 product: [{

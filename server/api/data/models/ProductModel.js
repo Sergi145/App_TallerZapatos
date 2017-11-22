@@ -7,7 +7,7 @@ const ProductSchema = new Schema({
     name: String,
     price: Number,
     default_amount: Number,
-    client:{type:Schema.ObjectId,ref:'Workshop'}
+    workshop:{type:Schema.ObjectId,ref:'Workshop'}
 })
 
 //exportamos el modelo

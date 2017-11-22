@@ -9,10 +9,11 @@ const md_upload=multipart({uploadDir:'./uploads/workshops'})//donde se guardaran
 const api=express.Router();
 
 api.get('/client/:id',auth.ensureAuth,ClientController.getClient)
-api.get('/clients/:page?',ClientController.getClients)//interrogante es opcional
-api.post('/client',auth.ensureAuth,ClientController.saveClient)
-api.put('/client/:id',auth.ensureAuth,ClientController.updateClient)
-api.delete('/client/:id',auth.ensureAuth,ClientController.deleteClient)
+api.get('/clients',ClientController.getClients)//interrogante es opcional
+api.post('/client',ClientController.saveClient)
+api.put('/client/:id',ClientController.updateClient)
+api.delete('/client/:id',ClientController.deleteClient)
+api.post('/upload_imageclient/:id',[auth.ensureAuth,md_upload],ClientController.uploadImage)
 
 
 module.exports=api;

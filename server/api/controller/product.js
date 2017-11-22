@@ -17,7 +17,7 @@ function getProducts(req,res){
 		var page=1;//pagina por defecto
 	}
 	
-	var productsPerPage=10;//le decimos cada pagina cuantos clientes listara
+	var productsPerPage=22;//le decimos cada pagina cuantos clientes listara
 
 	Product.find().sort('name').paginate(page,productsPerPage,(err,products,total)=>{//buscamos los clientes y lo ordenamos por nombre
 
@@ -51,7 +51,7 @@ function getProduct(req, res) {
 
 	var productId=req.params.id;
 
-	Product.findById(productId,(err,product)=>{
+	Product.findById(productId).populate({path:'workshop'}).exec((err,product)=>{
 
 		if(err){
 
@@ -83,7 +83,6 @@ function saveProduct(req, res) {
     console.log(params)
 
     product.name = params.name
-    product.cant_def = params.cant_def
     product.price = params.price
     product.workshop=params.workshop
    
