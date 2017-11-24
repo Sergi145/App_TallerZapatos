@@ -61,9 +61,9 @@ const Api={
 
 	},
 
-  createReparation:function(title,client,description,date,responsable){
+  createReparation:function(title,client,description,date,responsable,price){
   
-    axios.post(`http://localhost:8001/api/reparation`,{title,client,description,date,responsable})
+    axios.post(`http://localhost:8001/api/reparation`,{title,client,description,date,responsable,price})
       .then((response)=> {
           console.log(response);
 

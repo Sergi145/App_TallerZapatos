@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import Api from '../api/api'
-import Pagination from '../components/pagination'
+import Pag from '../components/pagination'
 import axios from 'axios'
 import swal from 'sweetalert'
 
@@ -15,7 +15,6 @@ class Tasks extends Component {
 
             reparations:[]
         }
-
 
     }
 
@@ -37,10 +36,15 @@ class Tasks extends Component {
 
     swal ( "Menos trabajo para ti" ,  "Tarea eliminada" ,  "success" )
 
+      axios.get('http://localhost:8001/api/reparations')
+      .then(({data:{reparations}}) => {
+        this.setState({reparations})
+      })
+      .catch(error=>{
+        console.log(error)
+      })
 
-    //console.log(_id)
-
-     
+    
   }
 
     render() {
@@ -82,7 +86,7 @@ class Tasks extends Component {
                            
                         </div>
 
-                        <Pagination/>
+                        <Pag/>
              
                     </div>
 

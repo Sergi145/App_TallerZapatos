@@ -105,6 +105,15 @@ class Products extends Component {
      swal ( "Un producto menos en tu taller" ,  "Producto eliminado" ,  "success" )
     //console.log(_id)
 
+    axios.get('https://pure-caverns-39521.herokuapp.com/api/products')
+      .then(({data:{products}}) => {
+        console.log(products)
+        this.setState({products})
+      })
+      .catch(error=>{
+        console.log(error)
+      })
+
   
   }
 
@@ -139,7 +148,7 @@ class Products extends Component {
                     <form>
                       <div class="form-group space">
                       
-                        <input type="text" class="form-control" id="exampleInputName" aria-describedby="NamelHelp" placeholder="Nombre" onChange={this.onChangeName}/>
+                        <input type="text" class="form-control" id="exampleInputName" aria-describedby="NamelHelp" placeholder="Nombre" onChange={this.onChangeName} />
                          
                       </div>
                       <div class="form-group space">
@@ -192,7 +201,7 @@ class Products extends Component {
                     <form>
                       <div class="form-group space">
                       
-                        <input type="text" class="form-control" id="exampleInputName" aria-describedby="NamelHelp" placeholder="Nombre" onChange={this.onChangeName}/>
+                        <input type="text" class="form-control" id="exampleInputName" aria-describedby="NamelHelp" placeholder="Nombre" onChange={this.onChangeName}   Value="3"/>
                          
                       </div>
                       <div class="form-group space">

@@ -10,10 +10,6 @@ const ReparationSchema=new Schema({
 	price:Number,
 	responsable:String,
 	client:{type:Schema.ObjectId,ref:'Client'},
-	 product: [{
-        quantity: Number,
-        product: { type: Schema.ObjectId, ref: 'Product' }
-    }],
 
 })
 

@@ -158,7 +158,7 @@ function deleteClient(req,res){
                  //res.status(200).send({clientDelete})
                  //ahora hacemos que tambien borre todas las tareas del cliente que estaban relacionadas con el
 
-                 Reparation.find({client:clientDelete._id}).remove((err,reparationDelete)=>{
+                 Reparation.find({client:clientDelete.id}).remove((err,reparationDelete)=>{
 
                  	if(err){
                  		 res.status(500).send({ message: 'Error al borrar la reparacion' })

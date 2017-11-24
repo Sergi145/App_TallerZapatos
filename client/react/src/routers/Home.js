@@ -3,24 +3,19 @@ import CheckBox from '../components/checkbox'
 import axios from 'axios'
 import Api from '../api/api'
 import swal from 'sweetalert'
+import Search from 'react-search'
 
-function searchingFor(term){
-  return function(x){
-    return x.surnames.includes(term|| !term)
-  }
-}
 
 class Home extends Component {
 
     constructor(props){
 
         super(props)
-        this.state={show:false};
-        this.toggleCheck=this.toggleCheck.bind(this)
-
+       
         var today=new Date(),
         date=today.getDate()+'-'+(today.getMonth()+1)+'-'+(today.getFullYear()-2000);
 
+       
         this.state={
             date:date,
             products:[],
@@ -30,20 +25,15 @@ class Home extends Component {
             client:'',
             description:'',
             date1:'',
-            respnsable:''
+            respnsable:'',
+            checked:false
+        
          
         }
 
-         this.searchUser=this.searchUser.bind(this);
-
     }
 
-    searchUser(event){
-
-    this.setState({term:event.target.value})
-
-  }
-
+  
       componentDidMount() {
     axios.get('https://pure-caverns-39521.herokuapp.com/api/products')
       .then(({data:{products}}) => {
@@ -52,18 +42,20 @@ class Home extends Component {
       })
       .catch(error=>{
         console.log(error)
-      })
-  }
-
-   componentWillMount() {
-    axios.get('http://localhost:8001/api/reparations')
+      }),
+        axios.get('http://localhost:8001/api/reparations')
       .then(({data:{reparations}}) => {
         console.log(reparations)
         this.setState({reparations})
       })
       .catch(error=>{
         console.log(error)
-      }),
+      })
+
+  }
+
+   componentWillMount() {
+  
 
        axios.get('http://localhost:8001/api/clients')
       .then(({data:{clients}}) => {
@@ -82,7 +74,16 @@ class Home extends Component {
     Api.deleteReparation(_id)
 
    swal ( "Menos trabajo para ti" ,  "Tarea eliminada" ,  "success" )
-    //console.log(_id)     
+    //console.log(_id)
+
+     axios.get('http://localhost:8001/api/reparations')
+      .then(({data:{reparations}}) => {
+        this.setState({reparations})
+      })
+      .catch(error=>{
+        console.log(error)
+      })
+
   }
 
 
@@ -92,9 +93,11 @@ class Home extends Component {
     }
 
 
-     handlerCreateReparation=(title,client,description,date,responsable)=>{
+     handlerCreateReparation=(title,client,description,date,responsable,price)=>{
 
-     Api.createReparation(title,client,description,date,responsable)
+
+
+     Api.createReparation(title,client,description,date,responsable,price)
 
 
         swal ( "Nueva tarea agregada a tu taller" ,  "Nueva Tarea" ,  "success" )
@@ -120,6 +123,17 @@ class Home extends Component {
       this.setState({
 
         client:event.target.value
+
+      })
+  }
+
+  onChangePrice=(event)=>{
+
+    event.preventDefault()
+
+      this.setState({
+
+        price:event.target.value
 
       })
   }
@@ -167,6 +181,19 @@ class Home extends Component {
 
   }
 
+  addPrice=(event)=>{
+ 
+    if(this.state.checked!=false){
+
+      console.log(event.target.value)
+      const price = parseInt(event.target.value)+parseInt(this.state.price) 
+
+      this.setState({price}) 
+
+    }
+        
+}
+
     render() {
         return (
          <main className="main col">
@@ -176,33 +203,21 @@ class Home extends Component {
                             <h3 className="titulo">Nueva Reparación</h3>
                             <form>
                                 <input type="text" name="Titulo de la reparación" placeholder="titulo" onChange={this.onChangeTitle}/>
-                                <input type="text" name="Client" placeholder="Buscar cliente por apellido" onChange={this.searchUser}/>
-                                <div class="a">
-                                  {
-                                    this.state.clients.filter(searchingFor(this.state.term)).map((client)=>{
-                                    return<p class="client_search"><a href="#"  onClick={()=>{this.handlerSearch(this.state._id)}}>{client.name} {client.surnames}</a></p>
-                                  })
-                                  }
-                               </div>
+                                <input type="text" name="Client" placeholder="Buscar cliente por apellido" onChange={this.searchUser}/>                             
                                 <textarea name="descripcion" id="descripcion" placeholder="Descripción" onChange={this.onChangeDescription}></textarea>
                                 <input type="text" name="Responsable" placeholder="Responsable" onChange={this.onChangeResponsable}/>
-                                <input className="form-control" type="datetime-local" value={this.state.date} id="example-datetime-local-input" onChange={this.onChangeDate}/>
-                               
-                                  <label className="custom-control custom-checkbox">
-                                    <input type="checkbox" className="custom-control-input" checked/>
-                                    <span className="custom-control-indicator"></span>
-                                    <span className="custom-control-description">Mano de Obra</span>
-                                </label>
-
-                               
+                                <input className="form-control" type="number" name="Responsable"   value={this.state.price} placeholder="Precio de la reparación" onChange={this.onChangePrice}/>
+                                <br/>
+                                <input className="form-control" type="datetime-local" value={this.state.date}  id="example-datetime-local-input" onChange={this.onChangeDate}/>
+                                                         
                                 {
                                     this.state.products.length && this.state.products.map((product)=>{
-                                        
+                      
                                         return  (<label className="custom-control custom-checkbox">
-                                        <input type="checkbox" className="custom-control-input"  onClick={this.toggleCheck}/>
+                                        <input type="checkbox" className="custom-control-input" value={product.price} onClick={this.addPrice}/>
                                         <span className="custom-control-indicator"></span>
                                         <span className="custom-control-description">{product.name}</span>
-                                           {this.state.show && <CheckBox/>}
+                                        
                                     
                                        
                                      </label>)       
@@ -211,7 +226,7 @@ class Home extends Component {
                                 }              
                                 
                                 <div className="d-flex justify-content-center">
-                                    <button><i className="fa fa-share" aria-hidden="true" onClick={()=>{this.handlerCreateReparation(this.state.title,this.state.client,this.state.description,this.state.date,this.state.responsable)}}></i>Enviar</button>
+                                    <button><i className="fa fa-share" aria-hidden="true" onClick={()=>{this.handlerCreateReparation(this.state.title,this.state.client,this.state.description,this.state.date,this.state.responsable,this.state.price)}}></i>Enviar</button>
                                 </div>
         
                             </form>
@@ -222,7 +237,7 @@ class Home extends Component {
                             <h3 className="titulo">Información</h3>
                             <div className="contenedor d-flex flex-wrap">
                                 <div className="caja">
-                                    <h3>40</h3>
+                                    <h3>{this.state.price}</h3>
                                     <p>Euros</p>
                                 </div>
                                 <div className="caja">

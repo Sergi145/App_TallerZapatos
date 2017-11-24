@@ -1,18 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ReactDOM from 'react-dom';
+import Pagination from 'rc-pagination';
+import 'rc-pagination/assets/index.css';
 
-const Pagination=()=> (
+class Pag extends React.Component {
+  state = {
+    current: 5,
+  };
+  onChange = (page) => {
+    console.log(page);
+    this.setState({
+      current: page,
+    });
+  }
+  render() {
+    return <Pagination onChange={this.onChange} current={this.state.current} total={25} />;
+  }
+}
 
-                 <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
-                             </ul>
-                        </nav>
-            
-	)
-
-export default Pagination
+export default Pag
