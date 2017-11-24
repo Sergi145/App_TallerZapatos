@@ -61,19 +61,23 @@ class Products extends Component {
     console.log(name);
     console.log(price)
 
-     Api.createProduct(name,price)
+    
 
 
     swal ( "Nuevo producto agregado a tu taller" ,  "Producto agregado" ,  "success" )
 
-     axios.get('https://pure-caverns-39521.herokuapp.com/api/products')
-      .then(({data:{products}}) => {
-        console.log(products)
-        this.setState({products})
-      })
-      .catch(error=>{
-        console.log(error)
-      })
+    
+    Api.createProduct(name,price)
+       .then(res => {
+          axios.get('https://pure-caverns-39521.herokuapp.com/api/products')
+            .then(({data:{products}}) => {
+              console.log(products)
+              this.setState({products})
+            })
+            .catch(error=>{
+              console.log(error)
+            })
+       })
 
   }
 
@@ -82,39 +86,41 @@ class Products extends Component {
     console.log(name)
     console.log(price)
 
-     Api.editProduct(_id,name,price)
+    
 
 
     swal ( "El producto de tu taller a sido modificado" ,  "Producto modificado" ,  "success" )
 
-     axios.get('https://pure-caverns-39521.herokuapp.com/api/products')
-      .then(({data:{products}}) => {
-        console.log(products)
-        this.setState({products})
-      })
-      .catch(error=>{
-        console.log(error)
-      })
+    Api.editProduct(_id,name,price)
+       .then(res => {
+          axios.get('https://pure-caverns-39521.herokuapp.com/api/products')
+            .then(({data:{products}}) => {
+              console.log(products)
+              this.setState({products})
+            })
+            .catch(error=>{
+              console.log(error)
+            })
+       })
 
   }
 
     deleteProduct=(_id)=>{
 
     Api.deleteProduct(_id)
+       .then(res => {
+          axios.get('https://pure-caverns-39521.herokuapp.com/api/products')
+            .then(({data:{products}}) => {
+              console.log(products)
+              this.setState({products})
+            })
+            .catch(error=>{
+              console.log(error)
+            })
+       })
 
      swal ( "Un producto menos en tu taller" ,  "Producto eliminado" ,  "success" )
     //console.log(_id)
-
-    axios.get('https://pure-caverns-39521.herokuapp.com/api/products')
-      .then(({data:{products}}) => {
-        console.log(products)
-        this.setState({products})
-      })
-      .catch(error=>{
-        console.log(error)
-      })
-
-  
   }
 
   getId(_id){
@@ -131,7 +137,7 @@ class Products extends Component {
     render() {
         return (
 
-            	<main className="main col">
+              <main className="main col">
             <button type="button" class="btn btn-info btn-circle btn-xl" data-toggle="modal" data-target="#smallShoes"><i class="fa fa-plus" aria-hidden="true"></i></button>
           
               <div class="modal fade" id="smallShoes" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true">
@@ -168,14 +174,14 @@ class Products extends Component {
              <div className="row">
                     <div className="columna col-lg-12">
                      <table className="table">
-  					<thead>
-    					<tr>
-      						<th>Nombre</th>
-      						<th>Precio</th>
-    					</tr>
-  					</thead>
-  					<tbody>
-    			  {
+            <thead>
+              <tr>
+                  <th>Nombre</th>
+                  <th>Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+            {
                 this.state.products.length && this.state.products.map((product)=>{
                 return<tr><td>{product.name}</td>
                 <td>{product.price} euros</td>
@@ -186,7 +192,7 @@ class Products extends Component {
               
               }
 
-  					</tbody>
+            </tbody>
              <div class="modal fade" id="editProduct" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true">
                   <div class="modal-dialog modal-sm">
                   <div class="modal-content">
@@ -217,12 +223,12 @@ class Products extends Component {
                   </div>
                   </div>
              </div>
-					</table>
-                	</div>
+          </table>
+                  </div>
                  
                 </div>
 
-		</main>
+    </main>
        )
     }
 }

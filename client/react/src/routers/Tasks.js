@@ -19,7 +19,7 @@ class Tasks extends Component {
     }
 
      componentDidMount() {
-    axios.get('http://localhost:8001/api/reparations')
+    axios.get('https://pure-caverns-39521.herokuapp.com/api/reparations')
       .then(({data:{reparations}}) => {
         console.log(reparations)
         this.setState({reparations})
@@ -36,7 +36,7 @@ class Tasks extends Component {
 
     swal ( "Menos trabajo para ti" ,  "Tarea eliminada" ,  "success" )
 
-      axios.get('http://localhost:8001/api/reparations')
+      axios.get('https://pure-caverns-39521.herokuapp.com/api/reparations')
       .then(({data:{reparations}}) => {
         this.setState({reparations})
       })

@@ -42,7 +42,7 @@ class Clients extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8001/api/clients')
+    axios.get('https://pure-caverns-39521.herokuapp.com/api/clients')
       .then(({data:{clients}}) => {
         console.log(clients)
         this.setState({clients})
@@ -143,19 +143,22 @@ class Clients extends Component {
     console.log(email);
     console.log(telephone);
 
-     Api.createClient(name,surnames,address,image,email,telephone)
-
+   
 
     swal ( "Nuevo cliente agregado a tu taller" ,  "Client agregado" ,  "success" )
 
-     axios.get('https://pure-caverns-39521.herokuapp.com/api/clients')
-      .then(({data:{clients}}) => {
-        console.log(clients)
-        this.setState({clients})
-      })
-      .catch(error=>{
-        console.log(error)
-      })
+    
+     Api.createClient(name,surnames,address,image,email,telephone)
+       .then(res => {
+          axios.get('https://pure-caverns-39521.herokuapp.com/api/clients')
+            .then(({data:{clients}}) => {
+              console.log(clients)
+              this.setState({clients})
+            })
+            .catch(error=>{
+              console.log(error)
+            })
+       })
 
   }
 
@@ -163,36 +166,43 @@ class Clients extends Component {
   handlerModificateClient=(_id,name,surnames,address,image,email,telephone)=>{
 
 
-     Api.editClient(_id,name,surnames,address,image,email,telephone)
-
+    
 
     swal ( "El cliente de tu taller a sido modificado" ,  "Cliente modificado" ,  "success" )
 
-     axios.get('https://pure-caverns-39521.herokuapp.com/api/clients')
-      .then(({data:{clients}}) => {
-        console.log(clients)
-        this.setState({clients})
-      })
-      .catch(error=>{
-        console.log(error)
-      })
-
+    
+    Api.editClient(_id,name,surnames,address,image,email,telephone)
+       .then(res => {
+          axios.get('https://pure-caverns-39521.herokuapp.com/api/clients')
+            .then(({data:{clients}}) => {
+              console.log(clients)
+              this.setState({clients})
+            })
+            .catch(error=>{
+              console.log(error)
+            })
+       })
   }
 
    deleteClient=(_id)=>{
 
-    Api.deleteClient(_id)
+   
 
    swal ( "Un usario menos en tu taller" ,  "Usuario eliminado" ,  "success" )
     //console.log(_id)
 
-    axios.get('https://pure-caverns-39521.herokuapp.com/api/clients')
-      .then(({data:{clients}}) => {
-        this.setState({clients})
-      })
-      .catch(error=>{
-        console.log(error)
-      })
+   
+   Api.deleteClient(_id)
+       .then(res => {
+          axios.get('https://pure-caverns-39521.herokuapp.com/api/clients')
+            .then(({data:{clients}}) => {
+              console.log(clients)
+              this.setState({clients})
+            })
+            .catch(error=>{
+              console.log(error)
+            })
+       })
   }
 
    getId(_id){
