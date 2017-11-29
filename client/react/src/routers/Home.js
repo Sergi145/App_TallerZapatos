@@ -45,7 +45,7 @@ class Home extends Component {
       .catch(error=>{
         console.log(error)
       }),
-    axios.get('http://localhost:8001/api/reparations')
+    axios.get('https://pure-caverns-39521.herokuapp.com/api/reparations')
       .then(({data:{reparations}}) => {
         console.log(reparations)
         this.setState({reparations})
