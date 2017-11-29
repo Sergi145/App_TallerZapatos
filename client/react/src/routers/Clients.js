@@ -27,7 +27,8 @@ class Clients extends Component {
       address:'',
       image:'',
       email:'',
-      telephone:''
+      telephone:'',
+      reparaciones:[]
 
     }
 
@@ -41,10 +42,9 @@ class Clients extends Component {
 
   }
 
-  componentDidMount() {
+  componentWillMount() {
     axios.get('https://pure-caverns-39521.herokuapp.com/api/clients')
       .then(({data:{clients}}) => {
-        console.log(clients)
         this.setState({clients})
       })
       .catch(error=>{
@@ -52,6 +52,9 @@ class Clients extends Component {
       })
   }
 
+  componentDidMount() {
+
+  }
 
   onChangeName=(event)=>{
 
@@ -152,12 +155,9 @@ class Clients extends Component {
        .then(res => {
           axios.get('https://pure-caverns-39521.herokuapp.com/api/clients')
             .then(({data:{clients}}) => {
-              console.log(clients)
               this.setState({clients})
             })
-            .catch(error=>{
-              console.log(error)
-            })
+            .catch(console.error)
        })
 
   }
@@ -207,13 +207,19 @@ class Clients extends Component {
 
    getId(_id){
 
-    console.log(_id)
-
     this.setState({
 
       _id
 
     })
+
+    Api.listReparations_Id(_id)
+      .then(response => {
+        this.setState({
+          reparaciones:response.data.reparations
+        })
+      })
+      .catch(console.error)
 
   }
 
@@ -303,7 +309,6 @@ class Clients extends Component {
       						<th>Telefono</th>
                   <th>Email</th>
                   <th>Dirección</th>
-                  <th>Foto</th>
     					</tr>
   					</thead>
   					<tbody>
@@ -314,7 +319,6 @@ class Clients extends Component {
                 <td>{client.telephone}</td>
                 <td>{client.email}</td>
                 <td>{client.address}</td>
-                <td><img class="artist" src={`http://localhost:8001/api/uploads/workshops/${client.image}`}/></td>
                 <td><button type="button" className="btn btn-primary" data-toggle="modal" data-target="#viewReparation" onClick={()=>{this.getId(client._id)}}><span><i className="fa fa-eye" aria-hidden="true"></i></span></button><button type="button" className="btn btn-success" data-toggle="modal" data-target="#editClient" onClick={()=>{this.getId(client._id)}}><span><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span></button><button type="button" className="btn btn-danger" onClick={()=>{this.deleteClient(client._id)}}><span><i className="fa fa-trash" aria-hidden="true"></i></span></button></td>
 
                 </tr>
@@ -324,8 +328,7 @@ class Clients extends Component {
   
   					</tbody>
 
-
-              <div className="modal fade" id="viewReparation" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true">
+            <div className="modal fade" id="viewReparation" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true">
                   <div className="modal-dialog modal-sm">
                   <div className="modal-content">
 
@@ -335,8 +338,14 @@ class Clients extends Component {
                     </button>
                     <h4 className="modal-title" id="modalLabelSmall">Ver Reparaciones Pendientes</h4>
                     </div>
+                    {
 
-                    <p class="center">Cambio de tapas</p>
+                      this.state.reparaciones.map(reparacion => {
+                        return <p className="reparation_pen">{reparacion.title}</p>
+                         
+                      })  
+                    }
+                    
                           
                   </div>
                   </div>

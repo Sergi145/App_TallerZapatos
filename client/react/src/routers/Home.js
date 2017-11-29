@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import CheckBox from '../components/checkbox'
 import axios from 'axios'
 import Api from '../api/api'
 import swal from 'sweetalert'
@@ -32,7 +31,7 @@ class Home extends Component {
     }
 
   
-      componentDidMount() {
+  componentDidMount() {
     axios.get('https://pure-caverns-39521.herokuapp.com/api/products')
       .then(({data:{products}}) => {
         console.log(products)
@@ -46,7 +45,7 @@ class Home extends Component {
       .catch(error=>{
         console.log(error)
       }),
-        axios.get('http://localhost:8001/api/reparations')
+    axios.get('http://localhost:8001/api/reparations')
       .then(({data:{reparations}}) => {
         console.log(reparations)
         this.setState({reparations})
@@ -124,8 +123,6 @@ class Home extends Component {
 
     console.log(event.target.value)
 
-
-     
       this.setState({
 
         client:event.target.value

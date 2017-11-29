@@ -5,11 +5,6 @@ body{
 
 }
 
-body::-webkit-scrollbar-thumb{
-  width: 7px;
-  color: #fff;
-}
-
 .barra-lateral{
   background:black;
   color:#fff;
@@ -346,4 +341,9 @@ button{
 
 .custom-select{
   margin-left: 0px;
+}
+
+.reparation_pen{
+  text-align: center;
+  color: red;
 }
