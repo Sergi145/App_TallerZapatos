@@ -3,8 +3,7 @@ import CheckBox from '../components/checkbox'
 import axios from 'axios'
 import Api from '../api/api'
 import swal from 'sweetalert'
-import Search from 'react-search'
-
+import moment from "moment"
 
 class Home extends Component {
 
@@ -24,11 +23,10 @@ class Home extends Component {
             title:'',
             client:'',
             description:'',
+            price:'',
             date1:'',
-            respnsable:'',
-            checked:false
-        
-         
+            responsable:'',
+            isChecked:[]      
         }
 
     }
@@ -39,11 +37,16 @@ class Home extends Component {
       .then(({data:{products}}) => {
         console.log(products)
         this.setState({products})
+        const isChecked =[]
+        for(let i=0; i<products.length;i++){
+              isChecked.push(false)
+        }
+        this.setState({isChecked})
       })
       .catch(error=>{
         console.log(error)
       }),
-        axios.get('https://pure-caverns-39521.herokuapp.com/api/reparations')
+        axios.get('http://localhost:8001/api/reparations')
       .then(({data:{reparations}}) => {
         console.log(reparations)
         this.setState({reparations})
@@ -93,14 +96,13 @@ class Home extends Component {
     }
 
 
-     handlerCreateReparation=(title,client,description,date,responsable,price)=>{
+     handlerCreateReparation=(title,client,description,date1,responsable,price)=>{
 
 
+    Api.createReparation(title,client,description,date1,responsable,price)
 
-     Api.createReparation(title,client,description,date,responsable,price)
 
-
-        swal ( "Nueva tarea agregada a tu taller" ,  "Nueva Tarea" ,  "success" )
+    swal ( "Nueva tarea agregada a tu taller" ,  "Nueva Tarea" ,  "success" )
 
     
   }
@@ -108,10 +110,10 @@ class Home extends Component {
     onChangeTitle=(event)=>{
 
     event.preventDefault()
-
+   
       this.setState({
 
-        title:event.target.value
+        title:event.target.value,
 
       })
   }
@@ -120,6 +122,10 @@ class Home extends Component {
 
     event.preventDefault()
 
+    console.log(event.target.value)
+
+
+     
       this.setState({
 
         client:event.target.value
@@ -131,6 +137,7 @@ class Home extends Component {
 
     event.preventDefault()
 
+  
       this.setState({
 
         price:event.target.value
@@ -141,6 +148,7 @@ class Home extends Component {
     onChangeDescription=(event)=>{
 
     event.preventDefault()
+
 
       this.setState({
 
@@ -153,16 +161,22 @@ class Home extends Component {
 
     event.preventDefault()
 
+     console.log(event.target.value)
+
       this.setState({
 
-        date:event.target.value
+        date1:event.target.value
 
       })
+
+    
+
   }
 
     onChangeResponsable=(event)=>{
 
     event.preventDefault()
+
 
       this.setState({
 
@@ -176,22 +190,29 @@ class Home extends Component {
     this.setState({
 
       _id
-
+    
     })
 
   }
 
-  addPrice=(event)=>{
- 
-    if(this.state.checked!=false){
+  addPrice=(event,index)=>{
+    //console.log(this.state.isChecked[index])
+        const isChecked= this.state.isChecked
+        isChecked[index] =  !this.state.isChecked[index]
+    
+         this.setState({isChecked})
 
-      console.log(event.target.value)
-      const price = parseInt(event.target.value)+parseInt(this.state.price) 
+        if(!this.state.isChecked[index])
+        {
+          let price =parseFloat(this.state.price)-parseFloat(event.target.value)
+          this.setState({price})
+        }
+        else 
+        {
+         let price = parseFloat(this.state.price)+parseFloat(event.target.value)
+          this.setState({price})
+        }
 
-      this.setState({price}) 
-
-    }
-        
 }
 
     render() {
@@ -203,18 +224,31 @@ class Home extends Component {
                             <h3 className="titulo">Nueva Reparación</h3>
                             <form>
                                 <input type="text" name="Titulo de la reparación" placeholder="titulo" onChange={this.onChangeTitle}/>
-                                <input type="text" name="Client" placeholder="Buscar cliente por apellido" onChange={this.searchUser}/>                             
+                          
+                                <select className="custom-select as col-lg-1" id="inlineFormCustomSelect" onChange={this.onChangeClient}>
+                                <option selected>Elegir Cliente</option>
+                                 {
+                                    this.state.clients.length && this.state.clients.map((client)=>{
+                      
+                                        return  (<option value={client._id} >{client.surnames},{client.name}</option>)       
+                                    })
+                    
+                                }     
+                                
+                               </select>
+                                <p></p>
                                 <textarea name="descripcion" id="descripcion" placeholder="Descripción" onChange={this.onChangeDescription}></textarea>
                                 <input type="text" name="Responsable" placeholder="Responsable" onChange={this.onChangeResponsable}/>
                                 <input className="form-control" type="number" name="Responsable"   value={this.state.price} placeholder="Precio de la reparación" onChange={this.onChangePrice}/>
+                              
+                                <input className="form-control" type="date" value={this.state.date1} id="example-datetime-local-input" onChange={this.onChangeDate}/>
+                                 
                                 <br/>
-                                <input className="form-control" type="datetime-local" value={this.state.date}  id="example-datetime-local-input" onChange={this.onChangeDate}/>
-                                                         
                                 {
-                                    this.state.products.length && this.state.products.map((product)=>{
+                                    this.state.products.length && this.state.products.map((product,index)=>{
                       
                                         return  (<label className="custom-control custom-checkbox">
-                                        <input type="checkbox" className="custom-control-input" value={product.price} onClick={this.addPrice}/>
+                                        <input type="checkbox" className="custom-control-input" value={product.price} checked={this.state.isChecked[index]} onChange={(event)=>{this.addPrice(event,index)}}/>
                                         <span className="custom-control-indicator"></span>
                                         <span className="custom-control-description">{product.name}</span>
                                         
@@ -226,7 +260,7 @@ class Home extends Component {
                                 }              
                                 
                                 <div className="d-flex justify-content-center">
-                                    <button><i className="fa fa-share" aria-hidden="true" onClick={()=>{this.handlerCreateReparation(this.state.title,this.state.client,this.state.description,this.state.date,this.state.responsable,this.state.price)}}></i>Enviar</button>
+                                    <button onClick={()=>{this.handlerCreateReparation(this.state.title,this.state.client,this.state.description,this.state.date1,this.state.responsable,this.state.price)}}><i className="fa fa-share" aria-hidden="true"></i>Enviar</button>
                                 </div>
         
                             </form>
@@ -249,20 +283,20 @@ class Home extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="widget tareas_prioritarias">
-                            <h3 className="titulo">Tareas Prioritarias</h3>
+                         <h3 className="titulo">Tareas Prioritarias</h3>
+                        <div className="widget tareas_prioritarias">                   
                              {
                                 this.state.reparations.map((reparation)=>{
-                                    return<div className="contenedor">
+                                    return  <div className="contenedor">
                                     <div className="tarea_prioritaria d-flex flex-wrap">
                                         <div className="foto_perfil">
                                             <img  src={require('../img/persona2.png')}/>
                                         </div>
                                     <div className="texto">
                                         <p>Titulo:<a><strong>{reparation.title}</strong></a></p>
-                                        <p>Cliente:<a><strong>{reparation.id_client}</strong></a></p>
+                                        <p>Cliente:<a><strong>{reparation.client}</strong></a></p>
                                         <p>Responsable:<a><strong>{reparation.responsable}</strong></a></p>
-                                        <p>Fecha de entrega:<a><strong>{reparation.date}</strong></a></p>
+                                        <p>Fecha de entrega:<a><strong>{reparation.date1}</strong></a></p>
                                         <p className="texto_comentario">{reparation.description}</p>
                                     </div>
                                     <div className="botones d-flex justify-content-start flex-wrap w-100">

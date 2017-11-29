@@ -20,9 +20,9 @@ function getReparations(req,res){
 		var page=1;//pagina por defecto
 	}
 	
-	var reparationsPerPage=3;//le decimos cada pagina cuantos clientes listara
+	var reparationsPerPage=20;//le decimos cada pagina cuantos clientes listara
 
-	Reparation.find().sort('date').paginate(page,reparationsPerPage,(err,reparations,total)=>{//buscamos los clientes y lo ordenamos por nombre
+	Reparation.find().sort('date1').paginate(page,reparationsPerPage,(err,reparations,total)=>{//buscamos los clientes y lo ordenamos por nombre
 
 		if(err){
 
@@ -47,6 +47,42 @@ function getReparations(req,res){
 
 	})
 
+}
+
+function getReparations_by_Id(req,res){
+
+	var clientId=req.params.client;
+
+	console.log(clientId)
+
+	if(!clientId){
+		var find=Reparation.find({}).sort('title')
+	}
+
+	else{
+		var find=Reparation.find({client:clientId}).sort('title')
+	}
+	find.populate({path:'client'}).exec((err,reparations)=>{
+
+		if(err){
+
+			 res.status(500).send({ message: 'Error en la petición' })
+		}
+		else{
+
+			if(!reparations){
+
+				res.status(404).send({ message: 'No hay reparaciones' })
+
+			}
+			else{
+				
+				res.status(200).send({reparations})
+			}
+
+		}
+
+	})
 }
 
 
@@ -83,16 +119,15 @@ function saveReparation(req, res) {
 
     let params = req.body //recogemos todas las variables que vienen por post
 
-    console.log(params)
-
+   
     reparation.title = params.title
     reparation.description = params.description
-    reparation.date= params.date
+    reparation.date1= params.date1
     reparation.price=params.price
     reparation.responsable=params.responsable
     reparation.client=params.client
-    
-   
+
+
 
     reparation.save((err, reparationStored) => {
 
@@ -104,13 +139,13 @@ function saveReparation(req, res) {
             if (!reparationStored) //si no lo a guardado
                 res.status(404).send({ message: 'No se a registrado la reparación' })
             else
+            	
                 res.status(200).send({ reparation: reparationStored })
         }
   
 })
 
 }
-
 
 
 function updateReparation(req,res){
@@ -172,7 +207,9 @@ module.exports = {
     getReparation,
     saveReparation,
     updateReparation,
-    deleteReparation
+    deleteReparation,
+    getReparations_by_Id
+
 
 }
 

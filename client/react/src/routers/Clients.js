@@ -207,6 +207,8 @@ class Clients extends Component {
 
    getId(_id){
 
+    console.log(_id)
+
     this.setState({
 
       _id
@@ -313,7 +315,7 @@ class Clients extends Component {
                 <td>{client.email}</td>
                 <td>{client.address}</td>
                 <td><img class="artist" src={`http://localhost:8001/api/uploads/workshops/${client.image}`}/></td>
-                <td><button type="button" className="btn btn-primary" data-toggle="modal" data-target="#viewReparation"><span><i className="fa fa-eye" aria-hidden="true"></i></span></button><button type="button" className="btn btn-success" data-toggle="modal" data-target="#editClient" onClick={()=>{this.getId(client._id)}}><span><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span></button><button type="button" className="btn btn-danger" onClick={()=>{this.deleteClient(client._id)}}><span><i className="fa fa-trash" aria-hidden="true"></i></span></button></td>
+                <td><button type="button" className="btn btn-primary" data-toggle="modal" data-target="#viewReparation" onClick={()=>{this.getId(client._id)}}><span><i className="fa fa-eye" aria-hidden="true"></i></span></button><button type="button" className="btn btn-success" data-toggle="modal" data-target="#editClient" onClick={()=>{this.getId(client._id)}}><span><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span></button><button type="button" className="btn btn-danger" onClick={()=>{this.deleteClient(client._id)}}><span><i className="fa fa-trash" aria-hidden="true"></i></span></button></td>
 
                 </tr>
                 })

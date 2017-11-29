@@ -10,7 +10,7 @@ const ClientSchema = new Schema({
     image: String,
     email: String,
     telephone: Number,
-    workshop: { type: Schema.ObjectId, ref: 'Workshop' }
+    workshop: { type: Schema.Types.ObjectId, ref: 'Workshop' }
 
 })
 

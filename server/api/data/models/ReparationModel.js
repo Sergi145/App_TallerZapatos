@@ -6,10 +6,10 @@ const Schema=mongoose.Schema
 const ReparationSchema=new Schema({
 	title:String,
 	description:String,
-	date:Date,
+	date1:Date.parse(),
 	price:Number,
 	responsable:String,
-	client:{type:Schema.ObjectId,ref:'Client'},
+	client:{type:Schema.ObjectId,ref:'Client'}
 
 })
 

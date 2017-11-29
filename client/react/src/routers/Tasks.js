@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import Api from '../api/api'
-import Pag from '../components/pagination'
 import axios from 'axios'
 import swal from 'sweetalert'
 
@@ -14,6 +13,7 @@ class Tasks extends Component {
          this.state = {
 
             reparations:[]
+           
         }
 
     }
@@ -27,6 +27,7 @@ class Tasks extends Component {
       .catch(error=>{
         console.log(error)
       })
+       
      
   }
 
@@ -54,10 +55,9 @@ class Tasks extends Component {
              <div className="row">
                     <div className="columna col-lg-12">
 
-                     
+                     <h3 className="titulo">Tareas</h3>
                         <div className="widget tareas_prioritarias">
-                            <h3 className="titulo">Tareas</h3>
-                            
+                                                     
                              {
                                 this.state.reparations.map((reparation)=>{
                                     return<div className="contenedor">
@@ -67,9 +67,9 @@ class Tasks extends Component {
                                         </div>
                                     <div className="texto">
                                         <p>Titulo:<a><strong>{reparation.title}</strong></a></p>
-                                        <p>Cliente:<a><strong>{reparation.id_client}</strong></a></p>
+                                        <p>Cliente:<a><strong>{reparation.client}</strong></a></p>
                                         <p>Responsable:<a><strong>{reparation.responsable}</strong></a></p>
-                                        <p>Fecha de entrega:<a><strong>{reparation.date}</strong></a></p>
+                                        <p>Fecha de entrega:<a><strong>{reparation.date1}</strong></a></p>
                                         <p>Precio: <a><strong>{reparation.price}</strong> euros</a></p>
                                         <p className="texto_comentario">{reparation.description}</p>
                                     </div>
@@ -85,17 +85,11 @@ class Tasks extends Component {
               }
                            
                         </div>
-
-                        <Pag/>
              
                     </div>
-
-                    
-                    
+                   
                   </div>
                  
-             
-
     </main>
 
        )

@@ -207,7 +207,7 @@ class Products extends Component {
                     <form>
                       <div class="form-group space">
                       
-                        <input type="text" class="form-control" id="exampleInputName" aria-describedby="NamelHelp" placeholder="Nombre" onChange={this.onChangeName}   Value="3"/>
+                        <input type="text" class="form-control" id="exampleInputName" aria-describedby="NamelHelp" placeholder="Nombre" onChange={this.onChangeName}/>
                          
                       </div>
                       <div class="form-group space">

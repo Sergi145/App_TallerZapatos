@@ -8,7 +8,7 @@ const md_upload=multipart({uploadDir:'./uploads/workshops'})//donde se guardaran
 
 const api=express.Router();
 
-api.get('/client/:id',auth.ensureAuth,ClientController.getClient)
+api.get('/client/:id',ClientController.getClient)
 api.get('/clients',ClientController.getClients)//interrogante es opcional
 api.post('/client',ClientController.saveClient)
 api.put('/client/:id',ClientController.updateClient)

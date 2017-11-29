@@ -12,7 +12,7 @@ function getClient(req, res) {
 
 	var clientId=req.params.id;
 
-	Client.findById(clientId).populate({path:'workshop'}).exec((err,client)=>{
+	Client.findById(clientId).populate({path:'reparation'}).exec((err,client)=>{
 
 		if(err){
 
@@ -89,7 +89,7 @@ function saveClient(req, res) {
     client.image = 'null'
     client.email = params.email
     client.telephone = params.telephone
-    client.workshop=params.workshop
+    client.reparation=params.reparation
 
 
     client.save((err, clientStored) => {

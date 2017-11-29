@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "cors": "^2.8.4",
+    "moment": "^2.19.2",
     "rc-pagination": "^1.12.11",
     "react": "^16.1.1",
     "react-addons-css-transition-group": "^15.6.2",

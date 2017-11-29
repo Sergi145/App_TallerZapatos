@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
-
 import './styles/bootstrap4/css/bootstrap.css'
 import './styles/styles.css';
 
