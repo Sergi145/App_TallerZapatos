@@ -108,7 +108,7 @@ const Api={
   },
 
   listReparations_Id:function(_id){
-    return axios.get(`/api/reparations/${_id}`)
+    return axios.get(`https://pure-caverns-39521.herokuapp.com/api/reparations/${_id}`)
      .then((response)=> {
            console.log(response);
            return response
