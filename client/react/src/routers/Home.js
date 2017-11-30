@@ -70,9 +70,9 @@ class Home extends Component {
       
   }
 
-   deleteReparation=(_id)=>{
-
-    Api.deleteReparation(_id)
+   deleteReparation=(event)=>{
+    event.preventDefault()
+    Api.deleteReparation(event.target.value)
        .then(res => {
         axios.get('https://pure-caverns-39521.herokuapp.com/api/reparations')
             .then(({data:{reparations}}) => {
@@ -94,9 +94,10 @@ class Home extends Component {
     }
 
 
-     handlerCreateReparation=(title,client,description,date1,responsable,price)=>{
- 
-    Api.createReparation(title,client,description,date1,responsable,price)
+  handlerCreateReparation=(event)=>{
+    event.preventDefault()
+
+    Api.createReparation(this.state.title,this.state.client,this.state.description,this.state.date1,this.state.responsable,this.state.price)
        .then(res => {
         axios.get('https://pure-caverns-39521.herokuapp.com/api/reparations')
             .then(({data:{reparations}}) => {
@@ -263,7 +264,7 @@ class Home extends Component {
                                 }              
                                 
                                 <div className="d-flex justify-content-center">
-                                    <button onClick={()=>{this.handlerCreateReparation(this.state.title,this.state.client,this.state.description,this.state.date1,this.state.responsable,this.state.price)}}><i className="fa fa-share" aria-hidden="true"></i>Enviar</button>
+                                    <button onClick={this.handlerCreateReparation}><i className="fa fa-share" aria-hidden="true"></i>Enviar</button>
                                 </div>
         
                             </form>
@@ -303,7 +304,7 @@ class Home extends Component {
                                     </div>
                                     <div className="botones d-flex justify-content-start flex-wrap w-100">
                                         <button className="aprobar"><i className="fa fa-mobile" aria-hidden="true"> Enviar SMS</i></button>
-                                        <button className="eliminar" onClick={()=>{this.deleteReparation(reparation._id)}}><i className="fa fa-trash" aria-hidden="true">Eliminar</i></button>
+                                        <button className="eliminar" value={reparation._id} onClick={this.deleteReparation}>Eliminar</button>
                                     </div>
                                 </div>                              
                             </div>
