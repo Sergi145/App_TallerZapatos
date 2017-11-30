@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import Api from '../api/api'
 import swal from 'sweetalert'
-import moment from "moment"
+
 
 class Home extends Component {
 
@@ -12,7 +12,6 @@ class Home extends Component {
        
         var today=new Date(),
         date=today.getDate()+'-'+(today.getMonth()+1)+'-'+(today.getFullYear()-2000);
-
        
         this.state={
             date:date,
@@ -85,7 +84,7 @@ class Home extends Component {
        })
 
    swal ( "Menos trabajo para ti" ,  "Tarea eliminada" ,  "success" )
-    //console.log(_id)
+
   }
 
 
@@ -96,12 +95,19 @@ class Home extends Component {
 
 
      handlerCreateReparation=(title,client,description,date1,responsable,price)=>{
-
-
+ 
     Api.createReparation(title,client,description,date1,responsable,price)
+       .then(res => {
+        axios.get('https://pure-caverns-39521.herokuapp.com/api/reparations')
+            .then(({data:{reparations}}) => {
+              this.setState({reparations})
+            })
+            .catch(error=>{
+              console.log(error)
+            })
+       })
 
-
-    swal ( "Nueva tarea agregada a tu taller" ,  "Nueva Tarea" ,  "success" )
+   swal ( "Nueva tarea agregada a tu taller" ,  "Nueva Tarea" ,  "success" )
 
     
   }
@@ -291,7 +297,6 @@ class Home extends Component {
                                         </div>
                                     <div className="texto">
                                         <p>Titulo:<a><strong>{reparation.title}</strong></a></p>
-                                        <p>Cliente:<a><strong>{reparation.client}</strong></a></p>
                                         <p>Responsable:<a><strong>{reparation.responsable}</strong></a></p>
                                         <p>Fecha de entrega:<a><strong>{reparation.date1}</strong></a></p>
                                         <p className="texto_comentario">{reparation.description}</p>

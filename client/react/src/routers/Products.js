@@ -58,12 +58,8 @@ class Products extends Component {
 
   handlerCreate=(name,price)=>{
 
-    console.log(name);
-    console.log(price)
-
+ 
     
-
-
     swal ( "Nuevo producto agregado a tu taller" ,  "Producto agregado" ,  "success" )
 
     

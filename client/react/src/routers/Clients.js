@@ -341,7 +341,7 @@ class Clients extends Component {
                     {
 
                       this.state.reparaciones.map(reparacion => {
-                        return <p className="reparation_pen">{reparacion.title}</p>
+                        return <p className="reparation_pen">{reparacion.title}:<span className="important"> Dia:{reparacion.date1}</span></p>
                          
                       })  
                     }

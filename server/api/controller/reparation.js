@@ -1,5 +1,6 @@
 'use strict'
 
+
 const path = require('path');
 const fs = require('fs');
 const mongoosePaginate=require('mongoose-pagination')//como vamos a utilizar paginación importamos el mongoosepagination
@@ -127,8 +128,7 @@ function saveReparation(req, res) {
     reparation.responsable=params.responsable
     reparation.client=params.client
 
-
-
+  
     reparation.save((err, reparationStored) => {
 
         if (err)
