@@ -2,8 +2,6 @@
 
 [![HTML5 and CSS3](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6I0fq6X2GNinHAMeD1XRuK_rdtkFWRCSk97y6BieAypoYl3HkXw)]
 
-[![ES6](https://cdn.sencha.com/img/20130807-es6.png)]
-
 [![BOOTSTRAP 4](
 https://www.servage.net/blog/wp-content/uploads/2016/10/Bootstrap4.png)]
 
@@ -30,23 +28,23 @@ El proyecto consiste en una App para administrar un taller de reparaciones donde
 
 # Dependencias Back-End
 
- -"bcrypt-nodejs": "0.0.3",
- -"body-parser": "^1.18.2",
- -"cors": "^2.8.4",
--"dotenv": "^4.0.0",
--"express": "^4.16.2",
- -"jwt-simple": "^0.5.1",
- -"mongoose": "^4.13.1",
+ +"bcrypt-nodejs": "0.0.3",
+ +"body-parser": "^1.18.2",
+ +"cors": "^2.8.4",
+ +"dotenv": "^4.0.0",
+ +"express": "^4.16.2",
+ +"jwt-simple": "^0.5.1",
+ +"mongoose": "^4.13.1",
  
  # Dependencias Front-End
  
- -"axios": "^0.17.1",
-   -"cors": "^2.8.4",
-    "react": "^16.1.1",
-    "react-addons-css-transition-group": "^15.6.2",
-    "react-addons-transition-group": "^15.6.2",
-    "react-dom": "^16.1.1",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17",
-    "sweetalert": "^2.0.8",
+   +"axios": "^0.17.1",
+   +"cors": "^2.8.4",
+   +"react": "^16.1.1",
+   +"react-addons-css-transition-group": "^15.6.2",
+   +"react-addons-transition-group": "^15.6.2",
+   +"react-dom": "^16.1.1",
+   +"react-router-dom": "^4.2.2",
+   +"react-scripts": "1.0.17",
+   +"sweetalert": "^2.0.8",
  
