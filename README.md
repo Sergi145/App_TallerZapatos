@@ -1,20 +1,20 @@
 # App para administrar taller de zapatos
 
-[![HTML5 and CSS3](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6I0fq6X2GNinHAMeD1XRuK_rdtkFWRCSk97y6BieAypoYl3HkXw)]
+[![HTML5,CSS3 and JS](https://github.com/FransLopez/logo-images/blob/master/logos/html5-css3-js.png)](http://www.w3.org/)
 
-[![BOOTSTRAP 4](
-https://www.servage.net/blog/wp-content/uploads/2016/10/Bootstrap4.png)]
+[![Bootstrap](https://github.com/FransLopez/logo-images/blob/master/logos/bootstrap.png)](http://getbootstrap.com/)
 
+[![npm](https://github.com/MarioTerron/logo-images/blob/master/logos/npm.png)](https://www.npmjs.com/)
 
-[![React](https://cdn-images-1.medium.com/fit/c/200/200/0*M-pxLuwCMoMo52W1.png)]
+[![React](https://github.com/FransLopez/logo-images/blob/master/logos/react.png)](https://facebook.github.io/react/)
+
+[![NodeJS](https://github.com/FransLopez/logo-images/blob/master/logos/nodejs.png)](https://nodejs.org/)
+
+[![ExpressJS](https://github.com/MarioTerron/logo-images/blob/master/logos/expressjs.png)](http://expressjs.com///)
+
+[![MongoDB](https://github.com/FransLopez/logo-images/blob/master/logos/mongodb.png)](https://www.mongodb.com/)
 
 [![AXIOS](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKULwinAOrRSM-Hk2Jg2pO7XLhmOCCasDdRq72ZFjtS5oFEIPP)]
-
-[![NodeJS](https://camo.githubusercontent.com/b6ba9075a54c192efc59bba53c92e7c23ec8cfe8/68747470733a2f2f63646e2e7261776769742e636f6d2f67696c626172626172612f6c6f676f732f653762316463323636366333646162653663313237366162643061373637623665626436616634332f6c6f676f732f6e6f64656a732d69636f6e2e737667)]
-
-[![npm](https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/188/thumb/npmlogo.png?1499963050)]
-
-[![MongoDB](https://www.gigapros.com/portal/wp-content/uploads/2014/12/mongodb.png)]
 
 
 El proyecto consiste en una App para administrar un taller de reparaciones donde se pueden administrar:
@@ -26,7 +26,7 @@ El proyecto consiste en una App para administrar un taller de reparaciones donde
 
 
 
-# Dependencias Back-End
+## Dependencias Back-End
 
  +"bcrypt-nodejs": "0.0.3",
  +"body-parser": "^1.18.2",
@@ -36,7 +36,7 @@ El proyecto consiste en una App para administrar un taller de reparaciones donde
  +"jwt-simple": "^0.5.1",
  +"mongoose": "^4.13.1",
  
- # Dependencias Front-End
+## Dependencias Front-End
  
    +"axios": "^0.17.1",
    +"cors": "^2.8.4",
