@@ -14,15 +14,16 @@
 
 [![MongoDB](https://github.com/FransLopez/logo-images/blob/master/logos/mongodb.png)](https://www.mongodb.com/)
 
-[![AXIOS](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKULwinAOrRSM-Hk2Jg2pO7XLhmOCCasDdRq72ZFjtS5oFEIPP)]
+[![AXIOS](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKULwinAOrRSM-Hk2Jg2pO7XLhmOCCasDdRq72ZFjtS5oFEIPP)
 
 
 El proyecto consiste en una App para administrar un taller de reparaciones donde se pueden administrar:
--Usuarios:Crear,eliminar y editar usuarios donde se puede buscar dicho usuario con un buscador y poder ver las reparaciones pendientes de ese usuario en concreto.
 
--Tareas:Añadir tareas al taller y estar organizadas por fecha de realización.
+**Usuarios**:Crear,eliminar y editar usuarios donde se puede buscar dicho usuario con un buscador y poder ver las reparaciones pendientes de ese usuario en concreto.
 
--Productos: Crear,eliminar y editar productos de tu taller.
+**Tareas**:Añadir tareas al taller y estar organizadas por fecha de realización.
+
+**Productos**: Crear,eliminar y editar productos de tu taller.
 
 
 
