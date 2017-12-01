@@ -19,9 +19,9 @@
 
 El proyecto consiste en una App para administrar un taller de reparaciones donde se pueden administrar:
 
-**Usuarios**:Crear,eliminar y editar usuarios donde se puede buscar dicho usuario con un buscador y poder ver las reparaciones pendientes de ese usuario en concreto.
+**Usuarios**:Crear,eliminar y editar usuarios donde se puede buscar dicho usuario con un buscador y poder ver las reparaciones pendientes de ese usuario.
 
-**Tareas**:Añadir tareas al taller y estar organizadas por fecha de realización.
+**Tareas**:Añadir tareas al taller y estar ordenadas por fecha que se tienen que realizar.
 
 **Productos**: Crear,eliminar y editar productos de tu taller.
 
@@ -29,23 +29,23 @@ El proyecto consiste en una App para administrar un taller de reparaciones donde
 
 ## Dependencias Back-End
 
- +"bcrypt-nodejs": "0.0.3",
- +"body-parser": "^1.18.2",
- +"cors": "^2.8.4",
- +"dotenv": "^4.0.0",
- +"express": "^4.16.2",
- +"jwt-simple": "^0.5.1",
- +"mongoose": "^4.13.1",
+ - "bcrypt-nodejs": "0.0.3",
+ - "body-parser": "^1.18.2",
+ - "cors": "^2.8.4",
+ - "dotenv": "^4.0.0",
+ - "express": "^4.16.2",
+ - "jwt-simple": "^0.5.1",
+ - "mongoose": "^4.13.1",
  
 ## Dependencias Front-End
  
-   +"axios": "^0.17.1",
-   +"cors": "^2.8.4",
-   +"react": "^16.1.1",
-   +"react-addons-css-transition-group": "^15.6.2",
-   +"react-addons-transition-group": "^15.6.2",
-   +"react-dom": "^16.1.1",
-   +"react-router-dom": "^4.2.2",
-   +"react-scripts": "1.0.17",
-   +"sweetalert": "^2.0.8",
+   - "axios": "^0.17.1",
+   - "cors": "^2.8.4",
+   - "react": "^16.1.1",
+   - "react-addons-css-transition-group": "^15.6.2",
+   - "react-addons-transition-group": "^15.6.2",
+   - "react-dom": "^16.1.1",
+   - "react-router-dom": "^4.2.2",
+   - "react-scripts": "1.0.17",
+   - "sweetalert": "^2.0.8",
  
