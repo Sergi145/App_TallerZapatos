@@ -16,8 +16,10 @@
 
 [![AXIOS](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKULwinAOrRSM-Hk2Jg2pO7XLhmOCCasDdRq72ZFjtS5oFEIPP)
 
+## Motivación del proyecto y funcionalidad
 
-El proyecto consiste en una App para administrar un taller de reparaciones donde se pueden administrar:
+
+El proyecto consiste en una App para administrar un taller de reparaciones para un familiar donde se puede interactuar con:
 
 **Usuarios**:Crear,eliminar y editar usuarios donde se puede buscar dicho usuario con un buscador y poder ver las reparaciones pendientes de ese usuario.
 
@@ -26,6 +28,14 @@ El proyecto consiste en una App para administrar un taller de reparaciones donde
 **Productos**: Crear,eliminar y editar productos de tu taller.
 
 
+## Ejecutar proyecto en local
+
+Taller_2017\app_taller_2017\client\react --->Ejecutar npm start
+
+Taller_2017\app_taller_2017\client\react\src\api-----> cambiar (https://pure-caverns-39521.herokuapp.com)
+por (http://localhost:8001)
+
+Taller_2017\app_taller_2017\server\api ---->Ejecutar nodemon index.js
 
 ## Dependencias Back-End
 
